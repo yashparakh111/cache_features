@@ -1,19 +1,19 @@
-void foo(int j) {
+int foo(int j) {
     int array[10];
     for(int i = 0; i < 10; i++)
         array[i] = 12134;
 
-    //return array[5];
+    return array[j];
 }
 
 void bar() {
     foo(1);
-    //foo(2);
+    foo(2);
 }
 
 void bar2() {
     foo(3);
-    foo(10);
+    foo(7);
 }
 
 int main() {
@@ -25,7 +25,7 @@ int main() {
 
     delete [] array;*/
     
-    foo(6);
-    //bar();
-    //bar2();
+    //foo(6);
+    bar();
+    bar2();
 }
