@@ -1,102 +1,138 @@
-            mov rax, qword ptr fs:[0x28] : 0x5622e693f675 reads 0x7fb915bf24e8 as 25676000
-                                         : _Z3fooi _Z3barv main 
+           cmp dword ptr [rbp-0x14], 0x2 : 0x555eda64a606 reads 0x7ffc916b054c as 5
+                                         : _Z3Fibi main 
 
-           mov eax, dword ptr [rbp-0x44] : 0x5622e693f6ca reads 0x7fffb6ec275c as 4
-                                         : _Z3fooi _Z3barv main 
+           mov eax, dword ptr [rbp-0x14] : 0x555eda64a613 reads 0x7ffc916b054c as 5
+                                         : _Z3Fibi main 
 
-     mov eax, dword ptr [rbp+rax*4-0x30] : 0x5622e693f6cf reads 0x7fffb6ec2780 as 14
-                                         : _Z3fooi _Z3barv main 
+           cmp dword ptr [rbp-0x14], 0x2 : 0x555eda64a606 reads 0x7ffc916b051c as 4
+                                         : _Z3Fibi _Z3Fibi main 
 
-            mov rax, qword ptr [rbp-0x8] : 0x5622e693f6d7 reads 0x7fffb6ec2798 as 25676000
-                                         : _Z3fooi _Z3barv main 
+           mov eax, dword ptr [rbp-0x14] : 0x555eda64a613 reads 0x7ffc916b051c as 4
+                                         : _Z3Fibi _Z3Fibi main 
 
-            xor rax, qword ptr fs:[0x28] : 0x5622e693f6db reads 0x7fb915bf24e8 as 25676000
-                                         : _Z3fooi _Z3barv main 
+           cmp dword ptr [rbp-0x14], 0x2 : 0x555eda64a606 reads 0x7ffc916b04ec as 3
+                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
 
-                                  leave  : 0x5622e693f6eb reads 0x7fffb6ec27a0 as b6ec27b0
-                                         : _Z3fooi _Z3barv main 
+           mov eax, dword ptr [rbp-0x14] : 0x555eda64a613 reads 0x7ffc916b04ec as 3
+                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
 
-                                    ret  : 0x5622e693f6ec reads 0x7fffb6ec27a8 as e693f6fb
-                                         : _Z3fooi _Z3barv main 
+           cmp dword ptr [rbp-0x14], 0x2 : 0x555eda64a606 reads 0x7ffc916b04bc as 2
+                                         : _Z3Fibi _Z3Fibi _Z3Fibi _Z3Fibi main 
 
-            mov rax, qword ptr fs:[0x28] : 0x5622e693f675 reads 0x7fb915bf24e8 as 25676000
-                                         : _Z3fooi _Z3barv main 
+                                 pop rbx : 0x555eda64a635 reads 0x7ffc916b04c8 as 0
+                                         : _Z3Fibi _Z3Fibi _Z3Fibi _Z3Fibi main 
 
-           mov eax, dword ptr [rbp-0x44] : 0x5622e693f6ca reads 0x7fffb6ec275c as 2
-                                         : _Z3fooi _Z3barv main 
+                                 pop rbp : 0x555eda64a636 reads 0x7ffc916b04d0 as 916b0500
+                                         : _Z3Fibi _Z3Fibi _Z3Fibi _Z3Fibi main 
 
-     mov eax, dword ptr [rbp+rax*4-0x30] : 0x5622e693f6cf reads 0x7fffb6ec2778 as 7
-                                         : _Z3fooi _Z3barv main 
+                                    ret  : 0x555eda64a637 reads 0x7ffc916b04d8 as da64a620
+                                         : _Z3Fibi _Z3Fibi _Z3Fibi _Z3Fibi main 
 
-            mov rax, qword ptr [rbp-0x8] : 0x5622e693f6d7 reads 0x7fffb6ec2798 as 25676000
-                                         : _Z3fooi _Z3barv main 
+           mov eax, dword ptr [rbp-0x14] : 0x555eda64a622 reads 0x7ffc916b04ec as 3
+                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
 
-            xor rax, qword ptr fs:[0x28] : 0x5622e693f6db reads 0x7fb915bf24e8 as 25676000
-                                         : _Z3fooi _Z3barv main 
+           cmp dword ptr [rbp-0x14], 0x2 : 0x555eda64a606 reads 0x7ffc916b04bc as 1
+                                         : _Z3Fibi _Z3Fibi _Z3Fibi _Z3Fibi main 
 
-                                  leave  : 0x5622e693f6eb reads 0x7fffb6ec27a0 as b6ec27b0
-                                         : _Z3fooi _Z3barv main 
+                                 pop rbx : 0x555eda64a635 reads 0x7ffc916b04c8 as 1
+                                         : _Z3Fibi _Z3Fibi _Z3Fibi _Z3Fibi main 
 
-                                    ret  : 0x5622e693f6ec reads 0x7fffb6ec27a8 as e693f705
-                                         : _Z3fooi _Z3barv main 
+                                 pop rbp : 0x555eda64a636 reads 0x7ffc916b04d0 as 916b0500
+                                         : _Z3Fibi _Z3Fibi _Z3Fibi _Z3Fibi main 
 
-                                 pop rbp : 0x5622e693f706 reads 0x7fffb6ec27b0 as b6ec27c0
-                                         : _Z3barv main 
+                                    ret  : 0x555eda64a637 reads 0x7ffc916b04d8 as da64a62f
+                                         : _Z3Fibi _Z3Fibi _Z3Fibi _Z3Fibi main 
 
-                                    ret  : 0x5622e693f707 reads 0x7fffb6ec27b8 as e693f72c
-                                         : _Z3barv main 
+                                 pop rbx : 0x555eda64a635 reads 0x7ffc916b04f8 as 0
+                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
 
-            mov rax, qword ptr fs:[0x28] : 0x5622e693f675 reads 0x7fb915bf24e8 as 25676000
-                                         : _Z3fooi _Z4bar2v main 
+                                 pop rbp : 0x555eda64a636 reads 0x7ffc916b0500 as 916b0530
+                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
 
-           mov eax, dword ptr [rbp-0x44] : 0x5622e693f6ca reads 0x7fffb6ec275c as 3
-                                         : _Z3fooi _Z4bar2v main 
+                                    ret  : 0x555eda64a637 reads 0x7ffc916b0508 as da64a620
+                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
 
-     mov eax, dword ptr [rbp+rax*4-0x30] : 0x5622e693f6cf reads 0x7fffb6ec277c as 9
-                                         : _Z3fooi _Z4bar2v main 
+           mov eax, dword ptr [rbp-0x14] : 0x555eda64a622 reads 0x7ffc916b051c as 4
+                                         : _Z3Fibi _Z3Fibi main 
 
-            mov rax, qword ptr [rbp-0x8] : 0x5622e693f6d7 reads 0x7fffb6ec2798 as 25676000
-                                         : _Z3fooi _Z4bar2v main 
+           cmp dword ptr [rbp-0x14], 0x2 : 0x555eda64a606 reads 0x7ffc916b04ec as 2
+                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
 
-            xor rax, qword ptr fs:[0x28] : 0x5622e693f6db reads 0x7fb915bf24e8 as 25676000
-                                         : _Z3fooi _Z4bar2v main 
+                                 pop rbx : 0x555eda64a635 reads 0x7ffc916b04f8 as 2
+                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
 
-                                  leave  : 0x5622e693f6eb reads 0x7fffb6ec27a0 as b6ec27b0
-                                         : _Z3fooi _Z4bar2v main 
+                                 pop rbp : 0x555eda64a636 reads 0x7ffc916b0500 as 916b0530
+                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
 
-                                    ret  : 0x5622e693f6ec reads 0x7fffb6ec27a8 as e693f716
-                                         : _Z3fooi _Z4bar2v main 
+                                    ret  : 0x555eda64a637 reads 0x7ffc916b0508 as da64a62f
+                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
 
-            mov rax, qword ptr fs:[0x28] : 0x5622e693f675 reads 0x7fb915bf24e8 as 25676000
-                                         : _Z3fooi _Z4bar2v main 
+                                 pop rbx : 0x555eda64a635 reads 0x7ffc916b0528 as 0
+                                         : _Z3Fibi _Z3Fibi main 
 
-           mov eax, dword ptr [rbp-0x44] : 0x5622e693f6ca reads 0x7fffb6ec275c as 7
-                                         : _Z3fooi _Z4bar2v main 
+                                 pop rbp : 0x555eda64a636 reads 0x7ffc916b0530 as 916b0560
+                                         : _Z3Fibi _Z3Fibi main 
 
-     mov eax, dword ptr [rbp+rax*4-0x30] : 0x5622e693f6cf reads 0x7fffb6ec278c as ff
-                                         : _Z3fooi _Z4bar2v main 
+                                    ret  : 0x555eda64a637 reads 0x7ffc916b0538 as da64a620
+                                         : _Z3Fibi _Z3Fibi main 
 
-            mov rax, qword ptr [rbp-0x8] : 0x5622e693f6d7 reads 0x7fffb6ec2798 as 25676000
-                                         : _Z3fooi _Z4bar2v main 
+           mov eax, dword ptr [rbp-0x14] : 0x555eda64a622 reads 0x7ffc916b054c as 5
+                                         : _Z3Fibi main 
 
-            xor rax, qword ptr fs:[0x28] : 0x5622e693f6db reads 0x7fb915bf24e8 as 25676000
-                                         : _Z3fooi _Z4bar2v main 
+           cmp dword ptr [rbp-0x14], 0x2 : 0x555eda64a606 reads 0x7ffc916b051c as 3
+                                         : _Z3Fibi _Z3Fibi main 
 
-                                  leave  : 0x5622e693f6eb reads 0x7fffb6ec27a0 as b6ec27b0
-                                         : _Z3fooi _Z4bar2v main 
+           mov eax, dword ptr [rbp-0x14] : 0x555eda64a613 reads 0x7ffc916b051c as 3
+                                         : _Z3Fibi _Z3Fibi main 
 
-                                    ret  : 0x5622e693f6ec reads 0x7fffb6ec27a8 as e693f720
-                                         : _Z3fooi _Z4bar2v main 
+           cmp dword ptr [rbp-0x14], 0x2 : 0x555eda64a606 reads 0x7ffc916b04ec as 2
+                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
 
-                                 pop rbp : 0x5622e693f721 reads 0x7fffb6ec27b0 as b6ec27c0
-                                         : _Z4bar2v main 
+                                 pop rbx : 0x555eda64a635 reads 0x7ffc916b04f8 as 3
+                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
 
-                                    ret  : 0x5622e693f722 reads 0x7fffb6ec27b8 as e693f731
-                                         : _Z4bar2v main 
+                                 pop rbp : 0x555eda64a636 reads 0x7ffc916b0500 as 916b0530
+                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
 
-                                 pop rbp : 0x5622e693f736 reads 0x7fffb6ec27c0 as e693f740
+                                    ret  : 0x555eda64a637 reads 0x7ffc916b0508 as da64a620
+                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
+
+           mov eax, dword ptr [rbp-0x14] : 0x555eda64a622 reads 0x7ffc916b051c as 3
+                                         : _Z3Fibi _Z3Fibi main 
+
+           cmp dword ptr [rbp-0x14], 0x2 : 0x555eda64a606 reads 0x7ffc916b04ec as 1
+                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
+
+                                 pop rbx : 0x555eda64a635 reads 0x7ffc916b04f8 as 1
+                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
+
+                                 pop rbp : 0x555eda64a636 reads 0x7ffc916b0500 as 916b0530
+                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
+
+                                    ret  : 0x555eda64a637 reads 0x7ffc916b0508 as da64a62f
+                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
+
+                                 pop rbx : 0x555eda64a635 reads 0x7ffc916b0528 as 3
+                                         : _Z3Fibi _Z3Fibi main 
+
+                                 pop rbp : 0x555eda64a636 reads 0x7ffc916b0530 as 916b0560
+                                         : _Z3Fibi _Z3Fibi main 
+
+                                    ret  : 0x555eda64a637 reads 0x7ffc916b0538 as da64a62f
+                                         : _Z3Fibi _Z3Fibi main 
+
+                                 pop rbx : 0x555eda64a635 reads 0x7ffc916b0558 as 0
+                                         : _Z3Fibi main 
+
+                                 pop rbp : 0x555eda64a636 reads 0x7ffc916b0560 as 916b0580
+                                         : _Z3Fibi main 
+
+                                    ret  : 0x555eda64a637 reads 0x7ffc916b0568 as da64a64a
+                                         : _Z3Fibi main 
+
+                                  leave  : 0x555eda64a652 reads 0x7ffc916b0580 as da64a660
                                          : main 
 
-                                    ret  : 0x5622e693f737 reads 0x7fffb6ec27c8 as 15805b97
+                                    ret  : 0x555eda64a653 reads 0x7ffc916b0588 as c62c3b97
                                          : main 
 
