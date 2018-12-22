@@ -11,10 +11,16 @@ VOID ReadContent(ADDRINT *addr) {
     return;
 }
 
-VOID Instruction(INS ins, VOID *v) {
-    if(INS_IsMov(ins) && INS_OperandIsMemory(ins, 1) && INS_MemoryBaseReg(ins) == REG_RIP) {
-        INS_InsertCall(ins, IPOINT_BEFORE, AFUNPTR(ReadContent), IARG_MEMORYREAD_EA, IARG_END);
-    }
+VOID Routine(INS ins, VOID *v) {
+        //RTN_Open(rtn);
+
+        //for(INS ins = RTN_InsHead(rtn); INS_Valid(ins); ins = INS_Next(ins)) {
+            if(INS_IsMov(ins) && INS_OperandIsMemory(ins, 1) && INS_MemoryBaseReg(ins) == REG_RIP) {
+                INS_InsertCall(ins, IPOINT_BEFORE, AFUNPTR(ReadContent), IARG_MEMORYREAD_EA, IARG_END);
+            }
+        //}
+        //RTN_Close(rtn);
+    //}
 }
 
 KNOB<string> KnobOutputFile(KNOB_MODE_WRITEONCE, "pintool", "o", "global_dump.out", "specify output file name");
@@ -28,7 +34,7 @@ INT32 Usage()
 {
     cerr << "This tool dump heap memory information (global variable) ..." << endl;
     cerr << endl
-         << KNOB_BASE::StringKnobSummary() << endl;
+        << KNOB_BASE::StringKnobSummary() << endl;
     return -1;
 }
 
@@ -39,7 +45,7 @@ int main(int argc, char *argv[]) {
     outFile.open(KnobOutputFile.Value().c_str());
 
     // Register Instruction to be called to instrument instructions
-    INS_AddInstrumentFunction(Instruction, 0);
+    INS_AddInstrumentFunction(Routine, 0);
 
     // Register Fini to be called when the application exits
     PIN_AddFiniFunction(Fini, 0);

@@ -1,14 +1,12 @@
-int foo(int j) {
-    int array[10];
-    for(int i = 0; i < 10; i++)
-        array[i] = 12134;
 
-    return array[j];
+void foo(int j) {
+    int array[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 45};
+    int a = array[j];
 }
 
 void bar() {
-    foo(1);
-    foo(2);
+    foo(4);
+    //foo(2);
 }
 
 void bar2() {
@@ -27,5 +25,5 @@ int main() {
     
     //foo(6);
     bar();
-    bar2();
+    //bar2();
 }

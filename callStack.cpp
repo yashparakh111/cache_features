@@ -9,6 +9,7 @@
 #include <string.h>
 #include "pin.H"
 #include <vector>
+#include <unordered_map>
 
 ofstream outFile;
 
@@ -16,12 +17,18 @@ ofstream outFile;
 vector<string> call_stack;
 uint8_t call_stack_size;
 
+// maintains instruction instruction disassembly
+static std::unordered_map<ADDRINT, std::string> inst_disassembly;
+
 VOID RecordMemRead(ADDRINT *inst_ptr, ADDRINT *addr) {
+    // record instruction disassembly
+    outFile << setw(40) << inst_disassembly[(unsigned long long)inst_ptr] << " : ";
     // capture value read by read_instruction
     ADDRINT value;
     PIN_SafeCopy(&value, addr, sizeof(ADDRINT));
-    outFile << "0x" << hex << (unsigned long long) inst_ptr << " reads 0x" << (unsigned long long) addr << " as " << dec << value << endl;
+    outFile << "0x" << hex << (unsigned long long) inst_ptr << " reads 0x" << (unsigned long long) addr << dec << " as " << value << endl;
 
+    outFile << setw(40) << " " << " : ";
     // print call stack beginning from most recent routine call
     int i = 0;
     for(std::vector<string>::reverse_iterator rtn_it = call_stack.rbegin(); rtn_it != call_stack.rend() && i < call_stack_size; rtn_it++) {
@@ -45,7 +52,7 @@ VOID PopRoutine() {
 // Pin calls this function every time a new rtn is executed
 VOID Routine(RTN rtn, VOID *v) {
     // only consider c functions (c functions begin with "_Z")
-    if (!RTN_Name(rtn).compare(0, 2, "_Z")) {
+    if (!RTN_Name(rtn).compare(0, 2, "_Z") || !RTN_Name(rtn).compare("main")) {
         RTN_Open(rtn);
 
         // push routine at start of the function
@@ -54,8 +61,18 @@ VOID Routine(RTN rtn, VOID *v) {
         for (INS ins = RTN_InsHead(rtn); INS_Valid(ins); ins = INS_Next(ins)) {
             // memory read encountered, record call stack
             if(INS_IsMemoryRead(ins)) {
+                //outFile << OPCODE_StringShort(INS_Opcode(ins)) << "\t";
+                //outFile << INS_Disassemble(ins) << endl;
+                inst_disassembly[INS_Address(ins)] = INS_Disassemble(ins);
+
                 INS_InsertPredicatedCall(ins, IPOINT_BEFORE, (AFUNPTR)RecordMemRead, IARG_INST_PTR, IARG_MEMORYREAD_EA, IARG_END);
-            } 
+            }
+            /*UINT32 memOperands = INS_MemoryOperandCount(ins);
+
+            for(UINT32 memOp = 0; memOp < memOperands; memOp++) {
+                if(INS_MemoryOperandIsRead(ins, memOp))
+                    INS_InsertPredicatedCall(ins, IPOINT_BEFORE, (AFUNPTR)RecordMemRead, IARG_INST_PTR, IARG_MEMORYREAD_EA, IARG_END);
+            }*/
         }
 
         // pop routine at the end of function call
