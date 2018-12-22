@@ -1,12 +1,12 @@
 
 void foo(int j) {
-    int array[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 45};
+    int array[] = {0x1, 0x4, 0x7, 0x9, 0x14, 0x21, 0x4f, 0xff, 0x2a, 0x95};
     int a = array[j];
 }
 
 void bar() {
     foo(4);
-    //foo(2);
+    foo(2);
 }
 
 void bar2() {
@@ -25,5 +25,5 @@ int main() {
     
     //foo(6);
     bar();
-    //bar2();
+    bar2();
 }

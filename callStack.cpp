@@ -23,10 +23,11 @@ static std::unordered_map<ADDRINT, std::string> inst_disassembly;
 VOID RecordMemRead(ADDRINT *inst_ptr, ADDRINT *addr) {
     // record instruction disassembly
     outFile << setw(40) << inst_disassembly[(unsigned long long)inst_ptr] << " : ";
+
     // capture value read by read_instruction
     ADDRINT value;
     PIN_SafeCopy(&value, addr, sizeof(ADDRINT));
-    outFile << "0x" << hex << (unsigned long long) inst_ptr << " reads 0x" << (unsigned long long) addr << dec << " as " << value << endl;
+    outFile << "0x" << hex << (unsigned long long) inst_ptr << " reads 0x" << (unsigned long long) addr << " as " << (int)value << endl;
 
     outFile << setw(40) << " " << " : ";
     // print call stack beginning from most recent routine call
