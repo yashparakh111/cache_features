@@ -7,7 +7,8 @@ int Fib(int n) {
 }
 
 int main() {
-    int a = Fib(5);
+    int n = 6;
+    int a = Fib(n);
     //cout << a << endl;
     return 0;
 }

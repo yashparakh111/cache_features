@@ -1,138 +1,78 @@
-           cmp dword ptr [rbp-0x14], 0x2 : 0x555eda64a606 reads 0x7ffc916b054c as 5
-                                         : _Z3Fibi main 
-
-           mov eax, dword ptr [rbp-0x14] : 0x555eda64a613 reads 0x7ffc916b054c as 5
-                                         : _Z3Fibi main 
-
-           cmp dword ptr [rbp-0x14], 0x2 : 0x555eda64a606 reads 0x7ffc916b051c as 4
-                                         : _Z3Fibi _Z3Fibi main 
-
-           mov eax, dword ptr [rbp-0x14] : 0x555eda64a613 reads 0x7ffc916b051c as 4
-                                         : _Z3Fibi _Z3Fibi main 
-
-           cmp dword ptr [rbp-0x14], 0x2 : 0x555eda64a606 reads 0x7ffc916b04ec as 3
-                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
-
-           mov eax, dword ptr [rbp-0x14] : 0x555eda64a613 reads 0x7ffc916b04ec as 3
-                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
-
-           cmp dword ptr [rbp-0x14], 0x2 : 0x555eda64a606 reads 0x7ffc916b04bc as 2
-                                         : _Z3Fibi _Z3Fibi _Z3Fibi _Z3Fibi main 
-
-                                 pop rbx : 0x555eda64a635 reads 0x7ffc916b04c8 as 0
-                                         : _Z3Fibi _Z3Fibi _Z3Fibi _Z3Fibi main 
-
-                                 pop rbp : 0x555eda64a636 reads 0x7ffc916b04d0 as 916b0500
-                                         : _Z3Fibi _Z3Fibi _Z3Fibi _Z3Fibi main 
-
-                                    ret  : 0x555eda64a637 reads 0x7ffc916b04d8 as da64a620
-                                         : _Z3Fibi _Z3Fibi _Z3Fibi _Z3Fibi main 
-
-           mov eax, dword ptr [rbp-0x14] : 0x555eda64a622 reads 0x7ffc916b04ec as 3
-                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
-
-           cmp dword ptr [rbp-0x14], 0x2 : 0x555eda64a606 reads 0x7ffc916b04bc as 1
-                                         : _Z3Fibi _Z3Fibi _Z3Fibi _Z3Fibi main 
-
-                                 pop rbx : 0x555eda64a635 reads 0x7ffc916b04c8 as 1
-                                         : _Z3Fibi _Z3Fibi _Z3Fibi _Z3Fibi main 
-
-                                 pop rbp : 0x555eda64a636 reads 0x7ffc916b04d0 as 916b0500
-                                         : _Z3Fibi _Z3Fibi _Z3Fibi _Z3Fibi main 
-
-                                    ret  : 0x555eda64a637 reads 0x7ffc916b04d8 as da64a62f
-                                         : _Z3Fibi _Z3Fibi _Z3Fibi _Z3Fibi main 
-
-                                 pop rbx : 0x555eda64a635 reads 0x7ffc916b04f8 as 0
-                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
-
-                                 pop rbp : 0x555eda64a636 reads 0x7ffc916b0500 as 916b0530
-                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
-
-                                    ret  : 0x555eda64a637 reads 0x7ffc916b0508 as da64a620
-                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
-
-           mov eax, dword ptr [rbp-0x14] : 0x555eda64a622 reads 0x7ffc916b051c as 4
-                                         : _Z3Fibi _Z3Fibi main 
-
-           cmp dword ptr [rbp-0x14], 0x2 : 0x555eda64a606 reads 0x7ffc916b04ec as 2
-                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
-
-                                 pop rbx : 0x555eda64a635 reads 0x7ffc916b04f8 as 2
-                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
-
-                                 pop rbp : 0x555eda64a636 reads 0x7ffc916b0500 as 916b0530
-                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
-
-                                    ret  : 0x555eda64a637 reads 0x7ffc916b0508 as da64a62f
-                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
-
-                                 pop rbx : 0x555eda64a635 reads 0x7ffc916b0528 as 0
-                                         : _Z3Fibi _Z3Fibi main 
-
-                                 pop rbp : 0x555eda64a636 reads 0x7ffc916b0530 as 916b0560
-                                         : _Z3Fibi _Z3Fibi main 
-
-                                    ret  : 0x555eda64a637 reads 0x7ffc916b0538 as da64a620
-                                         : _Z3Fibi _Z3Fibi main 
-
-           mov eax, dword ptr [rbp-0x14] : 0x555eda64a622 reads 0x7ffc916b054c as 5
-                                         : _Z3Fibi main 
-
-           cmp dword ptr [rbp-0x14], 0x2 : 0x555eda64a606 reads 0x7ffc916b051c as 3
-                                         : _Z3Fibi _Z3Fibi main 
-
-           mov eax, dword ptr [rbp-0x14] : 0x555eda64a613 reads 0x7ffc916b051c as 3
-                                         : _Z3Fibi _Z3Fibi main 
-
-           cmp dword ptr [rbp-0x14], 0x2 : 0x555eda64a606 reads 0x7ffc916b04ec as 2
-                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
-
-                                 pop rbx : 0x555eda64a635 reads 0x7ffc916b04f8 as 3
-                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
-
-                                 pop rbp : 0x555eda64a636 reads 0x7ffc916b0500 as 916b0530
-                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
-
-                                    ret  : 0x555eda64a637 reads 0x7ffc916b0508 as da64a620
-                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
-
-           mov eax, dword ptr [rbp-0x14] : 0x555eda64a622 reads 0x7ffc916b051c as 3
-                                         : _Z3Fibi _Z3Fibi main 
-
-           cmp dword ptr [rbp-0x14], 0x2 : 0x555eda64a606 reads 0x7ffc916b04ec as 1
-                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
-
-                                 pop rbx : 0x555eda64a635 reads 0x7ffc916b04f8 as 1
-                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
-
-                                 pop rbp : 0x555eda64a636 reads 0x7ffc916b0500 as 916b0530
-                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
-
-                                    ret  : 0x555eda64a637 reads 0x7ffc916b0508 as da64a62f
-                                         : _Z3Fibi _Z3Fibi _Z3Fibi main 
-
-                                 pop rbx : 0x555eda64a635 reads 0x7ffc916b0528 as 3
-                                         : _Z3Fibi _Z3Fibi main 
-
-                                 pop rbp : 0x555eda64a636 reads 0x7ffc916b0530 as 916b0560
-                                         : _Z3Fibi _Z3Fibi main 
-
-                                    ret  : 0x555eda64a637 reads 0x7ffc916b0538 as da64a62f
-                                         : _Z3Fibi _Z3Fibi main 
-
-                                 pop rbx : 0x555eda64a635 reads 0x7ffc916b0558 as 0
-                                         : _Z3Fibi main 
-
-                                 pop rbp : 0x555eda64a636 reads 0x7ffc916b0560 as 916b0580
-                                         : _Z3Fibi main 
-
-                                    ret  : 0x555eda64a637 reads 0x7ffc916b0568 as da64a64a
-                                         : _Z3Fibi main 
-
-                                  leave  : 0x555eda64a652 reads 0x7ffc916b0580 as da64a660
-                                         : main 
-
-                                    ret  : 0x555eda64a653 reads 0x7ffc916b0588 as c62c3b97
-                                         : main 
-
+                             Instruction        Instr Addr         Read Addr      Read Value     Call Stack (Most Recent to Least Recent Function)
+            mov eax, dword ptr [rbp-0x8]      560deb948647      7ffd644849d8               6     560deb948638	
+           cmp dword ptr [rbp-0x14], 0x2      560deb948606      7ffd644849ac               6     560deb9485fa	560deb948638	
+           mov eax, dword ptr [rbp-0x14]      560deb948613      7ffd644849ac               6     560deb9485fa	560deb948638	
+           cmp dword ptr [rbp-0x14], 0x2      560deb948606      7ffd6448497c               5     560deb9485fa	560deb9485fa	560deb948638	
+           mov eax, dword ptr [rbp-0x14]      560deb948613      7ffd6448497c               5     560deb9485fa	560deb9485fa	560deb948638	
+           cmp dword ptr [rbp-0x14], 0x2      560deb948606      7ffd6448494c               4     560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+           mov eax, dword ptr [rbp-0x14]      560deb948613      7ffd6448494c               4     560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+           cmp dword ptr [rbp-0x14], 0x2      560deb948606      7ffd6448491c               3     560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+           mov eax, dword ptr [rbp-0x14]      560deb948613      7ffd6448491c               3     560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+           cmp dword ptr [rbp-0x14], 0x2      560deb948606      7ffd644848ec               2     560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                 pop rbx      560deb948635      7ffd644848f8               0     560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                 pop rbp      560deb948636      7ffd64484900        64484930     560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                    ret       560deb948637      7ffd64484908        eb948620     560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+           mov eax, dword ptr [rbp-0x14]      560deb948622      7ffd6448491c               3     560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+           cmp dword ptr [rbp-0x14], 0x2      560deb948606      7ffd644848ec               1     560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                 pop rbx      560deb948635      7ffd644848f8               1     560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                 pop rbp      560deb948636      7ffd64484900        64484930     560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                    ret       560deb948637      7ffd64484908        eb94862f     560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                 pop rbx      560deb948635      7ffd64484928               0     560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                 pop rbp      560deb948636      7ffd64484930        64484960     560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                    ret       560deb948637      7ffd64484938        eb948620     560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+           mov eax, dword ptr [rbp-0x14]      560deb948622      7ffd6448494c               4     560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+           cmp dword ptr [rbp-0x14], 0x2      560deb948606      7ffd6448491c               2     560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                 pop rbx      560deb948635      7ffd64484928               2     560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                 pop rbp      560deb948636      7ffd64484930        64484960     560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                    ret       560deb948637      7ffd64484938        eb94862f     560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                 pop rbx      560deb948635      7ffd64484958               0     560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                 pop rbp      560deb948636      7ffd64484960        64484990     560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                    ret       560deb948637      7ffd64484968        eb948620     560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+           mov eax, dword ptr [rbp-0x14]      560deb948622      7ffd6448497c               5     560deb9485fa	560deb9485fa	560deb948638	
+           cmp dword ptr [rbp-0x14], 0x2      560deb948606      7ffd6448494c               3     560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+           mov eax, dword ptr [rbp-0x14]      560deb948613      7ffd6448494c               3     560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+           cmp dword ptr [rbp-0x14], 0x2      560deb948606      7ffd6448491c               2     560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                 pop rbx      560deb948635      7ffd64484928               3     560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                 pop rbp      560deb948636      7ffd64484930        64484960     560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                    ret       560deb948637      7ffd64484938        eb948620     560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+           mov eax, dword ptr [rbp-0x14]      560deb948622      7ffd6448494c               3     560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+           cmp dword ptr [rbp-0x14], 0x2      560deb948606      7ffd6448491c               1     560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                 pop rbx      560deb948635      7ffd64484928               1     560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                 pop rbp      560deb948636      7ffd64484930        64484960     560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                    ret       560deb948637      7ffd64484938        eb94862f     560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                 pop rbx      560deb948635      7ffd64484958               3     560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                 pop rbp      560deb948636      7ffd64484960        64484990     560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                    ret       560deb948637      7ffd64484968        eb94862f     560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                 pop rbx      560deb948635      7ffd64484988               0     560deb9485fa	560deb9485fa	560deb948638	
+                                 pop rbp      560deb948636      7ffd64484990        644849c0     560deb9485fa	560deb9485fa	560deb948638	
+                                    ret       560deb948637      7ffd64484998        eb948620     560deb9485fa	560deb9485fa	560deb948638	
+           mov eax, dword ptr [rbp-0x14]      560deb948622      7ffd644849ac               6     560deb9485fa	560deb948638	
+           cmp dword ptr [rbp-0x14], 0x2      560deb948606      7ffd6448497c               4     560deb9485fa	560deb9485fa	560deb948638	
+           mov eax, dword ptr [rbp-0x14]      560deb948613      7ffd6448497c               4     560deb9485fa	560deb9485fa	560deb948638	
+           cmp dword ptr [rbp-0x14], 0x2      560deb948606      7ffd6448494c               3     560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+           mov eax, dword ptr [rbp-0x14]      560deb948613      7ffd6448494c               3     560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+           cmp dword ptr [rbp-0x14], 0x2      560deb948606      7ffd6448491c               2     560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                 pop rbx      560deb948635      7ffd64484928               5     560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                 pop rbp      560deb948636      7ffd64484930        64484960     560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                    ret       560deb948637      7ffd64484938        eb948620     560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+           mov eax, dword ptr [rbp-0x14]      560deb948622      7ffd6448494c               3     560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+           cmp dword ptr [rbp-0x14], 0x2      560deb948606      7ffd6448491c               1     560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                 pop rbx      560deb948635      7ffd64484928               1     560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                 pop rbp      560deb948636      7ffd64484930        64484960     560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                    ret       560deb948637      7ffd64484938        eb94862f     560deb9485fa	560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                 pop rbx      560deb948635      7ffd64484958               5     560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                 pop rbp      560deb948636      7ffd64484960        64484990     560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                    ret       560deb948637      7ffd64484968        eb948620     560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+           mov eax, dword ptr [rbp-0x14]      560deb948622      7ffd6448497c               4     560deb9485fa	560deb9485fa	560deb948638	
+           cmp dword ptr [rbp-0x14], 0x2      560deb948606      7ffd6448494c               2     560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                 pop rbx      560deb948635      7ffd64484958               2     560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                 pop rbp      560deb948636      7ffd64484960        64484990     560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                    ret       560deb948637      7ffd64484968        eb94862f     560deb9485fa	560deb9485fa	560deb9485fa	560deb948638	
+                                 pop rbx      560deb948635      7ffd64484988               5     560deb9485fa	560deb9485fa	560deb948638	
+                                 pop rbp      560deb948636      7ffd64484990        644849c0     560deb9485fa	560deb9485fa	560deb948638	
+                                    ret       560deb948637      7ffd64484998        eb94862f     560deb9485fa	560deb9485fa	560deb948638	
+                                 pop rbx      560deb948635      7ffd644849b8               0     560deb9485fa	560deb948638	
+                                 pop rbp      560deb948636      7ffd644849c0        644849e0     560deb9485fa	560deb948638	
+                                    ret       560deb948637      7ffd644849c8        eb948651     560deb9485fa	560deb948638	
+                                  leave       560deb948659      7ffd644849e0        eb948660     560deb948638	
+                                    ret       560deb94865a      7ffd644849e8        b79b1b97     560deb948638	

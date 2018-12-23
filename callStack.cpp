@@ -15,39 +15,48 @@ ofstream outFile;
 
 // maintains the call stack for the current instruction
 vector<string> call_stack;
+vector<ADDRINT> call_stack_address;
 uint8_t call_stack_size;
 
 // maintains instruction instruction disassembly
 static std::unordered_map<ADDRINT, std::string> inst_disassembly;
 
 VOID RecordMemRead(ADDRINT *inst_ptr, ADDRINT *addr) {
+
     // record instruction disassembly
-    outFile << setw(40) << inst_disassembly[(unsigned long long)inst_ptr] << " : ";
+    outFile << setw(40) << inst_disassembly[(unsigned long long)inst_ptr] << " ";
 
     // capture value read by read_instruction
     ADDRINT value;
     PIN_SafeCopy(&value, addr, sizeof(ADDRINT));
-    outFile << "0x" << hex << (unsigned long long) inst_ptr << " reads 0x" << (unsigned long long) addr << " as " << (int)value << endl;
+    outFile << hex << setw(17)  << (unsigned long long) inst_ptr << " "
+        << setw(17) << (unsigned long long) addr << " "
+        << setw(15) << (int) value << " "
+        << "    ";
 
-    outFile << setw(40) << " " << " : ";
     // print call stack beginning from most recent routine call
     int i = 0;
+    std::vector<ADDRINT>::reverse_iterator rtn_addr_it = call_stack_address.rbegin();
     for(std::vector<string>::reverse_iterator rtn_it = call_stack.rbegin(); rtn_it != call_stack.rend() && i < call_stack_size; rtn_it++) {
-        outFile << *rtn_it << " ";
+        //outFile << *rtn_it << " (" << *rtn_addr_it << ")" << "\t";
+        outFile << *rtn_addr_it << "\t";
+        rtn_addr_it++;
         i++;
     }
 
-    outFile << endl << endl;
+    outFile << endl;
 }
 
 // push routine on call stack
 VOID PushRoutine(ADDRINT rtn) {
     call_stack.push_back(RTN_FindNameByAddress(rtn));
+    call_stack_address.push_back(rtn);
 }
 
 // pop routine from call stack
 VOID PopRoutine() {
     call_stack.pop_back();
+    call_stack_address.pop_back();
 }
 
 // Pin calls this function every time a new rtn is executed
@@ -95,8 +104,7 @@ INT32 Usage()
     return -1;
 }
 
-int main(int argc, char * argv[])
-{
+int main(int argc, char * argv[]) { 
     // declare the size of the call stack
     call_stack_size = 30;
 
@@ -113,6 +121,13 @@ int main(int argc, char * argv[])
 
     // Register Fini to be called when the application exits
     PIN_AddFiniFunction(Fini, 0);
+
+    // set up table headers
+    outFile << setw(40) << "Instruction" << " "
+        << setw(17) << "Instr Addr" << " "
+        << setw(17) << "Read Addr" << " "
+        << setw(15) << "Read Value" << " "
+        << "    " << "Call Stack (Most Recent to Least Recent Function)" << endl;
 
     // Start the program, never returns
     PIN_StartProgram();
