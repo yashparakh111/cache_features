@@ -24,14 +24,14 @@ static std::unordered_map<ADDRINT, std::string> inst_disassembly;
 VOID RecordMemRead(ADDRINT *inst_ptr, ADDRINT *addr) {
 
     // record instruction disassembly
-    outFile << setw(40) << inst_disassembly[(unsigned long long)inst_ptr] << " ";
+    outFile << setw(30) << inst_disassembly[(unsigned long long)inst_ptr] << " ";
 
     // capture value read by read_instruction
     ADDRINT value;
     PIN_SafeCopy(&value, addr, sizeof(ADDRINT));
-    outFile << hex << setw(17)  << (unsigned long long) inst_ptr << " "
-        << setw(17) << (unsigned long long) addr << " "
-        << setw(15) << (int) value << " "
+    outFile << hex << setw(14)  << (unsigned long long) inst_ptr << " "
+        << setw(14) << (unsigned long long) addr << " "
+        << setw(14) << (int) value << " "
         << "    ";
 
     // print call stack beginning from most recent routine call
@@ -123,10 +123,10 @@ int main(int argc, char * argv[]) {
     PIN_AddFiniFunction(Fini, 0);
 
     // set up table headers
-    outFile << setw(40) << "Instruction" << " "
-        << setw(17) << "Instr Addr" << " "
-        << setw(17) << "Read Addr" << " "
-        << setw(15) << "Read Value" << " "
+    outFile << setw(30) << "Instruction" << " "
+        << setw(14) << "Instr Addr" << " "
+        << setw(14) << "Data Addr" << " "
+        << setw(14) << "Data Value" << " "
         << "    " << "Call Stack (Most Recent to Least Recent Function)" << endl;
 
     // Start the program, never returns
