@@ -28,7 +28,7 @@ int main(int argc, char** argv) {
         printf("0x%-15llX", input.ip);
 
         for(int i = 0; i < input.call_stack_size; i++) {
-            printf("%-13llX", input.call_stack[i]);
+            printf("%-20llX", input.call_stack[i]);
         }
 
         printf("\n");
