@@ -74,7 +74,7 @@ const char * StripPath(const char * path)
 // Pin calls this function every time a new rtn is executed
 VOID Routine(RTN rtn, VOID *v)
 {
-    if(!RTN_Name(rtn).compare(0, 2, "_Z")) {    
+    //if(!RTN_Name(rtn).compare(0, 2, "_Z")) {    
         // Allocate a counter for this routine
         RTN_COUNT * rc = new RTN_COUNT;
 
@@ -104,7 +104,7 @@ VOID Routine(RTN rtn, VOID *v)
 
 
         RTN_Close(rtn);
-    }
+    //}
 }
 
 // This function is called when the application exits

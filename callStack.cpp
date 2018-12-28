@@ -14,11 +14,11 @@
 ofstream outFile;
 
 // maintains the call stack for the current instruction
-vector<string> call_stack;
+//vector<string> call_stack;
 vector<ADDRINT> call_stack_address;
 uint8_t call_stack_size;
 
-// maintains instruction instruction disassembly
+// maintains instruction disassembly
 static std::unordered_map<ADDRINT, std::string> inst_disassembly;
 
 VOID RecordMemRead(ADDRINT *inst_ptr, ADDRINT *addr) {
@@ -36,11 +36,10 @@ VOID RecordMemRead(ADDRINT *inst_ptr, ADDRINT *addr) {
 
     // print call stack beginning from most recent routine call
     int i = 0;
-    std::vector<ADDRINT>::reverse_iterator rtn_addr_it = call_stack_address.rbegin();
-    for(std::vector<string>::reverse_iterator rtn_it = call_stack.rbegin(); rtn_it != call_stack.rend() && i < call_stack_size; rtn_it++) {
+    //std::vector<ADDRINT>::reverse_iterator rtn_addr_it = call_stack_address.rbegin();
+    for(std::vector<ADDRINT>::reverse_iterator rtn_addr_it = call_stack_address.rbegin(); rtn_addr_it != call_stack_address.rend() && i < call_stack_size; rtn_addr_it++) {
         //outFile << *rtn_it << " (" << *rtn_addr_it << ")" << "\t";
         outFile << *rtn_addr_it << "\t";
-        rtn_addr_it++;
         i++;
     }
 
@@ -49,13 +48,13 @@ VOID RecordMemRead(ADDRINT *inst_ptr, ADDRINT *addr) {
 
 // push routine on call stack
 VOID PushRoutine(ADDRINT rtn) {
-    call_stack.push_back(RTN_FindNameByAddress(rtn));
+    //call_stack.push_back(RTN_FindNameByAddress(rtn));
     call_stack_address.push_back(rtn);
 }
 
 // pop routine from call stack
 VOID PopRoutine() {
-    call_stack.pop_back();
+    //call_stack.pop_back();
     call_stack_address.pop_back();
 }
 
