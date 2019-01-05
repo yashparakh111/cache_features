@@ -1,0 +1,68 @@
+0x4b8: _init
+
+
+0x4e0: targ4e0
+
+
+0x4f0: _start
+
+
+0x520: deregister_tm_clones
+
+
+0x560: register_tm_clones
+
+
+0x5b0: __do_global_dtors_aux
+
+
+0x5f0: frame_dummy
+
+
+0x5fa: foo
+	1: loop_1	
+		0x649: "add [RBP + ffffffffffffffec], 1"
+		0x605: "cmp [RBP + ffffffffffffffec], 9"
+	1: loop_2	
+		0x65d: "add [RBP + fffffffffffffff8], 1"
+		0x656: "cmp [RBP + fffffffffffffff8], 9"
+	2: loop_1.1	
+		0x619: "add [RBP + fffffffffffffff0], 1"
+		0x612: "cmp [RBP + fffffffffffffff0], 9"
+	2: loop_1.2	
+		0x643: "add [RBP + fffffffffffffff4], 1"
+		0x626: "cmp [RBP + fffffffffffffff4], 9"
+	3: loop_1.2.1	
+		0x639: "add [RBP + fffffffffffffffc], 1"
+		0x63d: "add [RBP + fffffffffffffffc], 1"
+		0x633: "cmp [RBP + fffffffffffffffc], 63"
+
+
+0x666: bar
+	1: loop_1	
+		0x68b: "add [RBP + fffffffffffffff8], 1"
+		0x671: "cmp [RBP + fffffffffffffff8], 9"
+	2: loop_1.1	
+		0x685: "add [RBP + fffffffffffffffc], 1"
+		0x67e: "cmp [RBP + fffffffffffffffc], 63"
+
+
+0x694: main
+	1: loop_1	
+		0x6ae: "add [RBP + fffffffffffffff8], 1"
+		0x6a3: "cmp [RBP + fffffffffffffff8], 9"
+	1: loop_2	
+		0x6c6: "add [RBP + fffffffffffffffc], 1"
+		0x6bb: "cmp [RBP + fffffffffffffffc], 9"
+
+
+0x6e0: __libc_csu_init
+	1: loop_1	
+
+
+0x750: __libc_csu_fini
+
+
+0x754: _fini
+
+
