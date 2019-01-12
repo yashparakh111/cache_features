@@ -1,78 +1,10 @@
                    Instruction     Instr Addr      Data Addr     Data Value     Call Stack (Most Recent to Least Recent Function)
-  mov eax, dword ptr [rbp-0x8]   55e936496647   7ffc1d0c9b88              6     55e936496638	
- cmp dword ptr [rbp-0x14], 0x2   55e936496606   7ffc1d0c9b5c              6     55e9364965fa	55e936496638	
- mov eax, dword ptr [rbp-0x14]   55e936496613   7ffc1d0c9b5c              6     55e9364965fa	55e936496638	
- cmp dword ptr [rbp-0x14], 0x2   55e936496606   7ffc1d0c9b2c              5     55e9364965fa	55e9364965fa	55e936496638	
- mov eax, dword ptr [rbp-0x14]   55e936496613   7ffc1d0c9b2c              5     55e9364965fa	55e9364965fa	55e936496638	
- cmp dword ptr [rbp-0x14], 0x2   55e936496606   7ffc1d0c9afc              4     55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
- mov eax, dword ptr [rbp-0x14]   55e936496613   7ffc1d0c9afc              4     55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
- cmp dword ptr [rbp-0x14], 0x2   55e936496606   7ffc1d0c9acc              3     55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
- mov eax, dword ptr [rbp-0x14]   55e936496613   7ffc1d0c9acc              3     55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
- cmp dword ptr [rbp-0x14], 0x2   55e936496606   7ffc1d0c9a9c              2     55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                       pop rbx   55e936496635   7ffc1d0c9aa8              0     55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                       pop rbp   55e936496636   7ffc1d0c9ab0       1d0c9ae0     55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                          ret    55e936496637   7ffc1d0c9ab8       36496620     55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
- mov eax, dword ptr [rbp-0x14]   55e936496622   7ffc1d0c9acc              3     55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
- cmp dword ptr [rbp-0x14], 0x2   55e936496606   7ffc1d0c9a9c              1     55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                       pop rbx   55e936496635   7ffc1d0c9aa8              1     55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                       pop rbp   55e936496636   7ffc1d0c9ab0       1d0c9ae0     55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                          ret    55e936496637   7ffc1d0c9ab8       3649662f     55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                       pop rbx   55e936496635   7ffc1d0c9ad8              0     55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                       pop rbp   55e936496636   7ffc1d0c9ae0       1d0c9b10     55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                          ret    55e936496637   7ffc1d0c9ae8       36496620     55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
- mov eax, dword ptr [rbp-0x14]   55e936496622   7ffc1d0c9afc              4     55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
- cmp dword ptr [rbp-0x14], 0x2   55e936496606   7ffc1d0c9acc              2     55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                       pop rbx   55e936496635   7ffc1d0c9ad8              2     55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                       pop rbp   55e936496636   7ffc1d0c9ae0       1d0c9b10     55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                          ret    55e936496637   7ffc1d0c9ae8       3649662f     55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                       pop rbx   55e936496635   7ffc1d0c9b08              0     55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                       pop rbp   55e936496636   7ffc1d0c9b10       1d0c9b40     55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                          ret    55e936496637   7ffc1d0c9b18       36496620     55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
- mov eax, dword ptr [rbp-0x14]   55e936496622   7ffc1d0c9b2c              5     55e9364965fa	55e9364965fa	55e936496638	
- cmp dword ptr [rbp-0x14], 0x2   55e936496606   7ffc1d0c9afc              3     55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
- mov eax, dword ptr [rbp-0x14]   55e936496613   7ffc1d0c9afc              3     55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
- cmp dword ptr [rbp-0x14], 0x2   55e936496606   7ffc1d0c9acc              2     55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                       pop rbx   55e936496635   7ffc1d0c9ad8              3     55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                       pop rbp   55e936496636   7ffc1d0c9ae0       1d0c9b10     55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                          ret    55e936496637   7ffc1d0c9ae8       36496620     55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
- mov eax, dword ptr [rbp-0x14]   55e936496622   7ffc1d0c9afc              3     55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
- cmp dword ptr [rbp-0x14], 0x2   55e936496606   7ffc1d0c9acc              1     55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                       pop rbx   55e936496635   7ffc1d0c9ad8              1     55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                       pop rbp   55e936496636   7ffc1d0c9ae0       1d0c9b10     55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                          ret    55e936496637   7ffc1d0c9ae8       3649662f     55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                       pop rbx   55e936496635   7ffc1d0c9b08              3     55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                       pop rbp   55e936496636   7ffc1d0c9b10       1d0c9b40     55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                          ret    55e936496637   7ffc1d0c9b18       3649662f     55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                       pop rbx   55e936496635   7ffc1d0c9b38              0     55e9364965fa	55e9364965fa	55e936496638	
-                       pop rbp   55e936496636   7ffc1d0c9b40       1d0c9b70     55e9364965fa	55e9364965fa	55e936496638	
-                          ret    55e936496637   7ffc1d0c9b48       36496620     55e9364965fa	55e9364965fa	55e936496638	
- mov eax, dword ptr [rbp-0x14]   55e936496622   7ffc1d0c9b5c              6     55e9364965fa	55e936496638	
- cmp dword ptr [rbp-0x14], 0x2   55e936496606   7ffc1d0c9b2c              4     55e9364965fa	55e9364965fa	55e936496638	
- mov eax, dword ptr [rbp-0x14]   55e936496613   7ffc1d0c9b2c              4     55e9364965fa	55e9364965fa	55e936496638	
- cmp dword ptr [rbp-0x14], 0x2   55e936496606   7ffc1d0c9afc              3     55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
- mov eax, dword ptr [rbp-0x14]   55e936496613   7ffc1d0c9afc              3     55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
- cmp dword ptr [rbp-0x14], 0x2   55e936496606   7ffc1d0c9acc              2     55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                       pop rbx   55e936496635   7ffc1d0c9ad8              5     55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                       pop rbp   55e936496636   7ffc1d0c9ae0       1d0c9b10     55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                          ret    55e936496637   7ffc1d0c9ae8       36496620     55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
- mov eax, dword ptr [rbp-0x14]   55e936496622   7ffc1d0c9afc              3     55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
- cmp dword ptr [rbp-0x14], 0x2   55e936496606   7ffc1d0c9acc              1     55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                       pop rbx   55e936496635   7ffc1d0c9ad8              1     55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                       pop rbp   55e936496636   7ffc1d0c9ae0       1d0c9b10     55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                          ret    55e936496637   7ffc1d0c9ae8       3649662f     55e9364965fa	55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                       pop rbx   55e936496635   7ffc1d0c9b08              5     55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                       pop rbp   55e936496636   7ffc1d0c9b10       1d0c9b40     55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                          ret    55e936496637   7ffc1d0c9b18       36496620     55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
- mov eax, dword ptr [rbp-0x14]   55e936496622   7ffc1d0c9b2c              4     55e9364965fa	55e9364965fa	55e936496638	
- cmp dword ptr [rbp-0x14], 0x2   55e936496606   7ffc1d0c9afc              2     55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                       pop rbx   55e936496635   7ffc1d0c9b08              2     55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                       pop rbp   55e936496636   7ffc1d0c9b10       1d0c9b40     55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                          ret    55e936496637   7ffc1d0c9b18       3649662f     55e9364965fa	55e9364965fa	55e9364965fa	55e936496638	
-                       pop rbx   55e936496635   7ffc1d0c9b38              5     55e9364965fa	55e9364965fa	55e936496638	
-                       pop rbp   55e936496636   7ffc1d0c9b40       1d0c9b70     55e9364965fa	55e9364965fa	55e936496638	
-                          ret    55e936496637   7ffc1d0c9b48       3649662f     55e9364965fa	55e9364965fa	55e936496638	
-                       pop rbx   55e936496635   7ffc1d0c9b68              0     55e9364965fa	55e936496638	
-                       pop rbp   55e936496636   7ffc1d0c9b70       1d0c9b90     55e9364965fa	55e936496638	
-                          ret    55e936496637   7ffc1d0c9b78       36496651     55e9364965fa	55e936496638	
-                        leave    55e936496659   7ffc1d0c9b90       36496660     55e936496638	
-                          ret    55e93649665a   7ffc1d0c9b98       cb7d3b97     55e936496638	
+  mov rax, qword ptr fs:[0x28]   55c56ca4e675   7f0cb1aa74e8       e65ed800     55c56ca4e66a	55c56ca4e723	
+ mov eax, dword ptr [rbp-0x44]   55c56ca4e6ca   7ffcecca3b3c              6     55c56ca4e66a	55c56ca4e723	
+mov eax, dword ptr [rbp+rax*4-0x30]   55c56ca4e6cf   7ffcecca3b68             4f     55c56ca4e66a	55c56ca4e723	
+  mov rax, qword ptr [rbp-0x8]   55c56ca4e6d7   7ffcecca3b78       e65ed800     55c56ca4e66a	55c56ca4e723	
+  xor rax, qword ptr fs:[0x28]   55c56ca4e6db   7f0cb1aa74e8       e65ed800     55c56ca4e66a	55c56ca4e723	
+                        leave    55c56ca4e6eb   7ffcecca3b80       ecca3b90     55c56ca4e66a	55c56ca4e723	
+                          ret    55c56ca4e6ec   7ffcecca3b88       6ca4e731     55c56ca4e66a	55c56ca4e723	
+                       pop rbp   55c56ca4e736   7ffcecca3b90       6ca4e740     55c56ca4e723	
+                          ret    55c56ca4e737   7ffcecca3b98       b16bbb97     55c56ca4e723	
