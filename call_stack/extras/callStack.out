@@ -1,0 +1,10 @@
+                   Instruction     Instr Addr      Data Addr     Data Value     Call Stack (Most Recent to Least Recent Function)
+  mov rax, qword ptr fs:[0x28]   55c56ca4e675   7f0cb1aa74e8       e65ed800     55c56ca4e66a	55c56ca4e723	
+ mov eax, dword ptr [rbp-0x44]   55c56ca4e6ca   7ffcecca3b3c              6     55c56ca4e66a	55c56ca4e723	
+mov eax, dword ptr [rbp+rax*4-0x30]   55c56ca4e6cf   7ffcecca3b68             4f     55c56ca4e66a	55c56ca4e723	
+  mov rax, qword ptr [rbp-0x8]   55c56ca4e6d7   7ffcecca3b78       e65ed800     55c56ca4e66a	55c56ca4e723	
+  xor rax, qword ptr fs:[0x28]   55c56ca4e6db   7f0cb1aa74e8       e65ed800     55c56ca4e66a	55c56ca4e723	
+                        leave    55c56ca4e6eb   7ffcecca3b80       ecca3b90     55c56ca4e66a	55c56ca4e723	
+                          ret    55c56ca4e6ec   7ffcecca3b88       6ca4e731     55c56ca4e66a	55c56ca4e723	
+                       pop rbp   55c56ca4e736   7ffcecca3b90       6ca4e740     55c56ca4e723	
+                          ret    55c56ca4e737   7ffcecca3b98       b16bbb97     55c56ca4e723	

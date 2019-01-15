@@ -278,7 +278,7 @@ void RegWrite(REG i, UINT32 index)
 	   */
 }
 
-void MemoryRead(VOID* addr, UINT32 index, UINT32 read_size) {
+void MemoryRead(INS instr, VOID* addr, UINT32 index, UINT32 read_size) {
 	is_read = true;
 
 	if(!tracing_on) return;
@@ -306,7 +306,7 @@ void MemoryRead(VOID* addr, UINT32 index, UINT32 read_size) {
 			}
 		}
 	}
-	PIN_LockClient();	
+	PIN_LockClient();
 	// record distance of curr instr to its routine
 	if(!call_stack_address.empty()) {
 		RTN curr_rtn = RTN_FindByAddress(call_stack_address.back());
