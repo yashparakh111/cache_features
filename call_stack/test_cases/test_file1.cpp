@@ -18,8 +18,9 @@ void foo() {
 
 int bar() {
 	for(int i = 0; i < 10; i++)
-		for(int j = 0;j < 100;j++)
-			continue;
+		for(int j = 0;j < 100;j++) {
+			int a = i + j;
+		}
 }
 
 int main() {
