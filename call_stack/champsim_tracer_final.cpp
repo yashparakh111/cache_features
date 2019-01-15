@@ -132,16 +132,13 @@ void BeginInstruction(VOID *ip, UINT32 op_code, VOID *opstring)
 
 
 	// initialize call stack info for read instr
-	if(is_read) {
-		// reset current call stack
-		curr_call_stack.ip = (unsigned long long int)ip;
-		curr_call_stack.call_stack_size = 0;
+		
+	// reset current call stack
+	curr_call_stack.ip = (unsigned long long int)ip;
+	curr_call_stack.call_stack_size = 0;
 
-		for(int i = 0; i < call_stack_max_size; i++) {
-			curr_call_stack.call_stack[i] = 0;
-		}
-
-		is_read = false;
+	for(int i = 0; i < call_stack_max_size; i++) {
+		curr_call_stack.call_stack[i] = 0;
 	}
 }
 
@@ -311,6 +308,7 @@ void MemoryRead(INS instr, VOID* addr, UINT32 index, UINT32 read_size) {
 	if(!call_stack_address.empty()) {
 		RTN curr_rtn = RTN_FindByAddress(call_stack_address.back());
 		if(RTN_Valid(curr_rtn) && SYM_Valid(RTN_Sym(curr_rtn))) {
+			cout << RTN_Name(RTN_FindByAddress(call_stack_address.back()));
 			cout << setw(15) << PIN_UndecorateSymbolName(SYM_Name(RTN_Sym(curr_rtn)), UNDECORATION_COMPLETE) << ": " << hex
 				<< curr_call_stack.ip << " - " << (unsigned long long int)call_stack_address.back() << " = "
 				<< (curr_call_stack.ip - (unsigned long long)call_stack_address.back()) << endl;
