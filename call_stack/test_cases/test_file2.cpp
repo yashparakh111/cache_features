@@ -6,9 +6,9 @@ int method1(int a) {
 }
 
 int main() {
-	for(int i = 0; i < 5; i++) {
+	/*for(int i = 0; i < 5; i++) {
 		method1(5);
-	}
+	}*/
 
 	for(int i = 0; i < 10; i++) {
 		int b = 123;

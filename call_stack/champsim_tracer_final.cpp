@@ -311,7 +311,6 @@ void MemoryRead(VOID* addr, UINT32 index, UINT32 read_size) {
 	if(!call_stack_address.empty()) {
 		RTN curr_rtn = RTN_FindByAddress(call_stack_address.back());
 		if(RTN_Valid(curr_rtn) && SYM_Valid(RTN_Sym(curr_rtn))) {
-			cout << SYM_IFuncImplementation(RTN_Sym(curr_rtn));
 			cout << setw(15) << PIN_UndecorateSymbolName(SYM_Name(RTN_Sym(curr_rtn)), UNDECORATION_COMPLETE) << ": " << hex
 				<< curr_call_stack.ip << " - " << (unsigned long long int)call_stack_address.back() << " = "
 				<< (curr_call_stack.ip - (unsigned long long)call_stack_address.back()) << endl;
@@ -439,17 +438,17 @@ VOID PopRoutine() {
 // Pin calls this function every time a new rtn is executed
 VOID Routine(RTN rtn, VOID *v) {
 	//cout << RTN_Name(rtn) << "\t\t\t\t\t" << RTN_IsArtificial(rtn) << endl;
-	//if(!RTN_Name(rtn).compare(0, 2, "_Z") || !RTN_Name(rtn).compare("main")) {
-	RTN_Open(rtn);
+	if(!RTN_Name(rtn).compare(0, 2, "_Z") || !RTN_Name(rtn).compare("main")) {
+		RTN_Open(rtn);
 
-	// push routine on call stack
-	RTN_InsertCall(rtn, IPOINT_BEFORE, (AFUNPTR)PushRoutine, IARG_ADDRINT, RTN_Address(rtn), IARG_END);
+		// push routine on call stack
+		RTN_InsertCall(rtn, IPOINT_BEFORE, (AFUNPTR)PushRoutine, IARG_ADDRINT, RTN_Address(rtn), IARG_END);
 
-	// pop routine off call stack
-	RTN_InsertCall(rtn, IPOINT_AFTER, (AFUNPTR)PopRoutine, IARG_END);
+		// pop routine off call stack
+		RTN_InsertCall(rtn, IPOINT_AFTER, (AFUNPTR)PopRoutine, IARG_END);
 
-	RTN_Close(rtn);
-	//}
+		RTN_Close(rtn);
+	}
 }
 
 /*!

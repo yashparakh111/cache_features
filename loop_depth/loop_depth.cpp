@@ -58,7 +58,7 @@ int main(int argc, char **argv) {
 	for(;fit != all.end(); ++fit) {
 		Function *f = *fit;
 
-		// output the start address of this function
+		// output the address of this function
 		cout << "0x" << hex << f->addr() << ": " << f->name() << endl;
 		// prepare the first level loops
 		vector<LoopTreeNode*> children = f->getLoopTree()->children;
@@ -112,7 +112,7 @@ int main(int argc, char **argv) {
 
 						// capture read instructions only
 						if(instr->readsMemory()) {
-							cout << "\t\t0x" << hex << curr_addr;
+							cout << "\t\t0x" << hex << curr_addr - f->addr();
 							cout << ": \"" << instr->format() << "\"" << endl;
 							// get to the address of the next instruction
 						}
