@@ -37,6 +37,7 @@ typedef struct trace_call_stack {
 	unsigned long long int ip;  // instruction pointer
 	unsigned long long int call_stack[call_stack_max_size];    // call stack
 	uint8_t call_stack_size;
+	uint8_t loop_depth;
 } trace_call_stack_format_t;
 
 
@@ -140,6 +141,7 @@ void BeginInstruction(VOID *ip, UINT32 op_code, VOID *opstring)
 	// initialize call stack info for read instr	
 	curr_call_stack.ip = (unsigned long long int)ip;
 	curr_call_stack.call_stack_size = 0;
+	curr_call_stack.loop_depth = 0;
 
 	for(int i = 0; i < call_stack_max_size; i++) {
 		curr_call_stack.call_stack[i] = 0;
@@ -308,19 +310,22 @@ void MemoryRead(INS instr, VOID* addr, UINT32 index, UINT32 read_size) {
 		}
 	}
 
+	// capture loop depth for routines with valid symbols
 	PIN_LockClient();
-	// record distance of curr instr to its routine
 	if(!call_stack_address.empty()) {
 		ADDRINT rtn_addr = call_stack_address.back();
 		RTN curr_rtn = RTN_FindByAddress(rtn_addr);
 		if(RTN_Valid(curr_rtn) && SYM_Valid(RTN_Sym(curr_rtn))) {
 			string function_name = PIN_UndecorateSymbolName(SYM_Name(RTN_Sym(curr_rtn)), UNDECORATION_NAME_ONLY);
 			int offset = curr_call_stack.ip - (unsigned long long int)rtn_addr;
-			cout << ""
-				<< unsigned(loop_depth_map[function_name][offset])
+
+			// record loop depth
+			curr_call_stack.loop_depth = loop_depth_map[function_name][offset];
+
+			/*cout << hex << unsigned(loop_depth_map[function_name][offset])
 				<< setw(15) << function_name << ": "
 				<< curr_call_stack.ip << " - " << (unsigned long long int)rtn_addr << " = " << offset
-				<< endl;
+				<< endl;*/
 		}
 	}
 	PIN_UnlockClient();

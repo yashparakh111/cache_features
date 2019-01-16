@@ -11,6 +11,7 @@ typedef struct trace_call_stack {
     unsigned long long int ip;      // instruction pointer (PC) value 
     unsigned long long int call_stack[call_stack_max_size];    // call stack
     uint8_t call_stack_size;
+	uint8_t loop_depth;
 } trace_call_stack_format_t;
 
 int main(int argc, char** argv) {
@@ -25,8 +26,13 @@ int main(int argc, char** argv) {
 
     // read file contents till end of file
     while(fread(&input, sizeof(trace_call_stack_format_t), 1, infile)) {
-        printf("0x%-15llX", input.ip);
+       	// print intruction pointer 
+		printf("0x%-15llX", input.ip);
 
+		// print loop depth
+		printf("%-5u", input.loop_depth);
+
+		// print call stack
         for(int i = 0; i < input.call_stack_size; i++) {
             printf("%-20llX", input.call_stack[i]);
         }
