@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <string>
+#include <map>
 
 #define NUM_INSTR_DESTINATIONS 2
 #define NUM_INSTR_SOURCES 4
@@ -55,6 +56,8 @@ bool is_read = false;
 trace_instr_format_t curr_instr;
 trace_call_stack_format_t curr_call_stack;
 
+map<string, map<int, uint8_t>> loop_depth_map;
+
 /* ===================================================================== */
 // Command line switches
 /* ===================================================================== */
@@ -63,6 +66,9 @@ KNOB<string> KnobOutputFile(KNOB_MODE_WRITEONCE,  "pintool", "o", "champsim.trac
 
 KNOB<string> KnobCallStackOutputFile(KNOB_MODE_WRITEONCE,  "pintool", "O", "champsim_call_stack.trace", 
 		"specify file name for Champsim tracer call stack output");
+
+KNOB<string> KnobLoopDepthTrace(KNOB_MODE_WRITEONCE,  "pintool", "l", "loop_depth.trace", 
+		"specify path to loop_depth_info file");
 
 KNOB<UINT64> KnobSkipInstructions(KNOB_MODE_WRITEONCE, "pintool", "s", "0", 
 		"How many instructions to skip before tracing begins");
@@ -131,9 +137,7 @@ void BeginInstruction(VOID *ip, UINT32 op_code, VOID *opstring)
 	}
 
 
-	// initialize call stack info for read instr
-		
-	// reset current call stack
+	// initialize call stack info for read instr	
 	curr_call_stack.ip = (unsigned long long int)ip;
 	curr_call_stack.call_stack_size = 0;
 
@@ -303,21 +307,27 @@ void MemoryRead(INS instr, VOID* addr, UINT32 index, UINT32 read_size) {
 			}
 		}
 	}
+
 	PIN_LockClient();
 	// record distance of curr instr to its routine
 	if(!call_stack_address.empty()) {
-		RTN curr_rtn = RTN_FindByAddress(call_stack_address.back());
+		ADDRINT rtn_addr = call_stack_address.back();
+		RTN curr_rtn = RTN_FindByAddress(rtn_addr);
 		if(RTN_Valid(curr_rtn) && SYM_Valid(RTN_Sym(curr_rtn))) {
-			cout << RTN_Name(RTN_FindByAddress(call_stack_address.back()));
-			cout << setw(15) << PIN_UndecorateSymbolName(SYM_Name(RTN_Sym(curr_rtn)), UNDECORATION_COMPLETE) << ": " << hex
-				<< curr_call_stack.ip << " - " << (unsigned long long int)call_stack_address.back() << " = "
-				<< (curr_call_stack.ip - (unsigned long long)call_stack_address.back()) << endl;
+			string function_name = PIN_UndecorateSymbolName(SYM_Name(RTN_Sym(curr_rtn)), UNDECORATION_NAME_ONLY);
+			int offset = curr_call_stack.ip - (unsigned long long int)rtn_addr;
+			cout << ""
+				<< unsigned(loop_depth_map[function_name][offset])
+				<< setw(15) << function_name << ": "
+				<< curr_call_stack.ip << " - " << (unsigned long long int)rtn_addr << " = " << offset
+				<< endl;
 		}
 	}
 	PIN_UnlockClient();
 
-	// this part of the code records the call stack for this specific read instruction
-	curr_call_stack.call_stack_size = call_stack_address.size() >= call_stack_max_size ? call_stack_max_size : call_stack_address.size();
+	// record call stack for this read instruction
+	curr_call_stack.call_stack_size = 
+		call_stack_address.size() >= call_stack_max_size ? call_stack_max_size : call_stack_address.size();
 
 	std::vector<ADDRINT>::reverse_iterator rtn_addr_it = call_stack_address.rbegin();
 	for(int i = 0; i < curr_call_stack.call_stack_size; i++) {
@@ -435,7 +445,7 @@ VOID PopRoutine() {
 
 // Pin calls this function every time a new rtn is executed
 VOID Routine(RTN rtn, VOID *v) {
-	//cout << RTN_Name(rtn) << "\t\t\t\t\t" << RTN_IsArtificial(rtn) << endl;
+	//cout << setw(50) << RTN_Name(rtn) << ": " << RTN_IsDynamic(rtn) << endl;
 	if(!RTN_Name(rtn).compare(0, 2, "_Z") || !RTN_Name(rtn).compare("main")) {
 		RTN_Open(rtn);
 
@@ -466,8 +476,77 @@ VOID Fini(INT32 code, VOID *v)
 		fclose(call_stack_output_file);
 		output_file_closed = true;
 	}
+
+	// test to see if fileToMap is implemented properly
+	/*
+	cout << endl << "Map" << endl;
+	for(map<string, map<int, uint8_t>>::const_iterator iter = loop_depth_map.begin(); iter != loop_depth_map.end(); ++iter) {
+		cout << iter->first << endl; // print method name
+		for(std::map<int, uint8_t>::const_iterator iter2 = (iter->second).begin(); iter2 != (iter->second).end(); ++iter2) {
+			cout << iter2->first << "|" << unsigned(iter2->second) << endl;       // write offset|loop_depth pairs
+		}
+		cout << "-" << endl;
+	}
+	*/
 }
 
+void splitString(vector<string> &v_str, const string &str, const char ch) {
+	string sub;
+	string::size_type pos = 0;
+	string::size_type old_pos = 0;
+	bool flag=true;
+
+	while(flag)
+	{
+		pos=str.find_first_of(ch,pos);
+		if(pos == string::npos)
+		{
+			flag = false;
+			pos = str.size();
+		}
+		sub = str.substr(old_pos,pos-old_pos);  // Disregard the '.'
+		v_str.push_back(sub);
+		old_pos = ++pos;
+	}
+}
+
+// read loop depth map from loop_depth.trace
+bool fileToMap(const string& filename) {
+	ifstream ifile;
+	ifile.open(filename.c_str());
+	if(!ifile)
+		return false;		// could not read the file.
+
+	string line;
+	string key;
+	map<int, uint8_t> func_map;
+	bool is_func_name = true;	
+
+	while(ifile>>line) {
+		vector<string> v_str;
+		//splitString(v_str, line, '\n');
+		if(is_func_name) {
+			key = line; // obtain function name
+			is_func_name = false;
+			continue;
+		}
+		if(!line.compare("-")) {
+			loop_depth_map[key] = func_map;
+			is_func_name = true;
+			func_map.clear();
+			continue;
+		}
+		splitString(v_str, line, '|');
+		func_map[atoi(v_str[0].c_str())] = atoi(v_str[1].c_str());
+	}
+
+	return true;
+}
+
+bool InitLoopDepth() {
+	string filename = KnobLoopDepthTrace.Value();
+	return fileToMap(filename);
+}
 /*!
  * The main procedure of the tool.
  * This function is called when the application image is loaded but not yet started.
@@ -482,7 +561,7 @@ int main(int argc, char *argv[])
 
 	// Initialize PIN library. Print help message if -h(elp) is specified
 	// in the command line or the command line is invalid 
-	if( PIN_Init(argc,argv) )
+	if(PIN_Init(argc,argv) )
 		return Usage();
 
 	//const char* fileName = KnobOutputFile.Value().c_str();
@@ -511,6 +590,9 @@ int main(int argc, char *argv[])
 		cout << "Couldn't open call stack output trace file. Exiting." << endl;
 		exit(1);
 	}
+
+	// Initialize loop depth map
+	InitLoopDepth();
 
 	// Register Routine to be called to instrument rtn
 	RTN_AddInstrumentFunction(Routine, 0);
