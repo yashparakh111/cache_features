@@ -7,11 +7,38 @@
 #include "InstructionDecoder.h"
 #include "CFG.h"
 
+#include <map>
+#include <fstream>
+
 using namespace std;
 using namespace Dyninst;
 using namespace ParseAPI;
 
 using namespace InstructionAPI;
+
+typedef std::map<std::string, std::map<int, uint8_t>> l_depth_map;
+
+// writes map to file
+bool mapToFile(const string &filename, const l_depth_map &fileMap) {
+	std::ofstream ofile;
+	ofile.open(filename.c_str());
+	if(!ofile) {
+		return false;
+	}
+
+	// write the map to ofile
+	for(l_depth_map::const_iterator iter = fileMap.begin(); iter != fileMap.end(); ++iter) {
+		ofile << iter->first << endl; // write method name
+		//cout << iter->first << endl; // print method name
+		for(std::map<int, uint8_t>::const_iterator iter2 = (iter->second).begin(); iter2 != (iter->second).end(); ++iter2) {
+			ofile << iter2->first << "|" << unsigned(iter2->second) << endl;		// write offset|loop_depth pairs
+			//cout << iter2->first << "|" << unsigned(iter2->second) << endl;		// write offset|loop_depth pairs
+		}
+		ofile << "-" << endl;
+	}
+	ofile.close();
+	return true;
+}
 
 int main(int argc, char **argv) {
 	if(argc != 2) {
@@ -26,6 +53,9 @@ int main(int argc, char **argv) {
 	Instruction::Ptr instr;
 	SymtabAPI::Symtab *symTab;
 	std::string binaryPathStr(binaryPath);
+
+	// map function name and read instruction offset to loop depth
+	std::map<std::string, std::map<int, uint8_t>> loop_depth_map;
 
 	bool isParsable = SymtabAPI::Symtab::openFile(symTab, binaryPathStr);
 
@@ -55,11 +85,14 @@ int main(int argc, char **argv) {
 	InstructionDecoder decoder(f->isrc()->getPtrToInstruction(f->addr()),
 			InstructionDecoder::maxInstructionLength,
 			f->region()->getArch());
+
 	for(;fit != all.end(); ++fit) {
 		Function *f = *fit;
+		std::map<int, uint8_t> func_map;	// maps read instructions to loop depth
 
 		// output the address of this function
 		cout << "0x" << hex << f->addr() << ": " << f->name() << endl;
+
 		// prepare the first level loops
 		vector<LoopTreeNode*> children = f->getLoopTree()->children;
 
@@ -83,7 +116,7 @@ int main(int argc, char **argv) {
 			Loop* loop = loop_node->loop;
 
 			cout << "\t" << unsigned(loop_depth) << ": " << loop_node->name() << "\t" << endl;
-				
+
 
 			// enqueue all children for current node (these have a loop depth of loop_depth+1)
 			children = loop_node->children;
@@ -112,9 +145,10 @@ int main(int argc, char **argv) {
 
 						// capture read instructions only
 						if(instr->readsMemory()) {
+							int offset = (int)(curr_addr - f->addr());
+							func_map[offset] = loop_depth;
 							cout << "\t\t0x" << hex << curr_addr - f->addr();
 							cout << ": \"" << instr->format() << "\"" << endl;
-							// get to the address of the next instruction
 						}
 						curr_addr += instr->size();
 					}
@@ -131,7 +165,14 @@ int main(int argc, char **argv) {
 				next_depth_loop_num = 0;
 			}
 		}
+		loop_depth_map[f->name()] = func_map;	// map this function's name to it's func_name 
 		cout << endl << endl;
+
 	}
+
+	//cout << unsigned(loop_depth_map["main"]
+	string filename = "loop_depth.trace";
+	mapToFile(filename, loop_depth_map);
+
 	return 0;
 }
