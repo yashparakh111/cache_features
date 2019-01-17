@@ -57,7 +57,13 @@ bool is_read = false;
 trace_instr_format_t curr_instr;
 trace_call_stack_format_t curr_call_stack;
 
-map<string, map<int, uint8_t>> loop_depth_map;
+// allows for a generic mapping from function_name to any value defined under this struct
+typedef struct feature_map {
+	std::map<int, uint8_t> loop_depth_map;  // maps instruction offset to a loop depth
+} feature_map_t;
+
+typedef std::map<std::string, feature_map_t> function_map;
+function_map func_map;
 
 /* ===================================================================== */
 // Command line switches
@@ -320,12 +326,12 @@ void MemoryRead(INS instr, VOID* addr, UINT32 index, UINT32 read_size) {
 			int offset = curr_call_stack.ip - (unsigned long long int)rtn_addr;
 
 			// record loop depth
-			curr_call_stack.loop_depth = loop_depth_map[function_name][offset];
+			curr_call_stack.loop_depth = (func_map[function_name]).loop_depth_map[offset];
 
-			/*cout << hex << unsigned(loop_depth_map[function_name][offset])
-				<< setw(15) << function_name << ": "
-				<< curr_call_stack.ip << " - " << (unsigned long long int)rtn_addr << " = " << offset
-				<< endl;*/
+			cout << hex << unsigned(func_map[function_name].loop_depth_map[offset])
+			  << setw(15) << function_name << ": "
+			  << curr_call_stack.ip << " - " << (unsigned long long int)rtn_addr << " = " << offset
+			  << endl;
 		}
 	}
 	PIN_UnlockClient();
@@ -484,15 +490,15 @@ VOID Fini(INT32 code, VOID *v)
 
 	// test to see if fileToMap is implemented properly
 	/*
-	cout << endl << "Map" << endl;
-	for(map<string, map<int, uint8_t>>::const_iterator iter = loop_depth_map.begin(); iter != loop_depth_map.end(); ++iter) {
-		cout << iter->first << endl; // print method name
-		for(std::map<int, uint8_t>::const_iterator iter2 = (iter->second).begin(); iter2 != (iter->second).end(); ++iter2) {
-			cout << iter2->first << "|" << unsigned(iter2->second) << endl;       // write offset|loop_depth pairs
-		}
-		cout << "-" << endl;
-	}
-	*/
+	   cout << endl << "Map" << endl;
+	   for(map<string, map<int, uint8_t>>::const_iterator iter = loop_depth_map.begin(); iter != loop_depth_map.end(); ++iter) {
+	   cout << iter->first << endl; // print method name
+	   for(std::map<int, uint8_t>::const_iterator iter2 = (iter->second).begin(); iter2 != (iter->second).end(); ++iter2) {
+	   cout << iter2->first << "|" << unsigned(iter2->second) << endl;       // write offset|loop_depth pairs
+	   }
+	   cout << "-" << endl;
+	   }
+	   */
 }
 
 void splitString(vector<string> &v_str, const string &str, const char ch) {
@@ -524,25 +530,30 @@ bool fileToMap(const string& filename) {
 
 	string line;
 	string key;
-	map<int, uint8_t> func_map;
+	map<int, uint8_t> l_depth_map;		// maps offsets to loop depth
 	bool is_func_name = true;	
 
 	while(ifile>>line) {
 		vector<string> v_str;
-		//splitString(v_str, line, '\n');
+		
+		// encountered function name
 		if(is_func_name) {
 			key = line; // obtain function name
 			is_func_name = false;
 			continue;
 		}
+
+		// end of nested loop_depth map
 		if(!line.compare("-")) {
-			loop_depth_map[key] = func_map;
+			feature_map_t f_map = {l_depth_map};
+			func_map[key] = f_map;
+
 			is_func_name = true;
-			func_map.clear();
+			l_depth_map.clear();
 			continue;
 		}
 		splitString(v_str, line, '|');
-		func_map[atoi(v_str[0].c_str())] = atoi(v_str[1].c_str());
+		l_depth_map[atoi(v_str[0].c_str())] = atoi(v_str[1].c_str());
 	}
 
 	return true;
@@ -552,6 +563,7 @@ bool InitLoopDepth() {
 	string filename = KnobLoopDepthTrace.Value();
 	return fileToMap(filename);
 }
+
 /*!
  * The main procedure of the tool.
  * This function is called when the application image is loaded but not yet started.
