@@ -1,7 +1,0 @@
-COMPILE TOOL:
-make PIN_ROOT=<path to Pin kit> obj-intel64/YourTools.so
-make PIN_ROOT=~/pin/pin-3.7-97619-g0d0c92f4f-gcc-linux obj-intel64/champsim_tracer_final.so
-
-RUN TOOL:
-/pin/pin-3.7-97619-g0d0c92f4f-gcc-linux/pin -t ../obj-intel64/champsim_tracer_final.so -l ~/cache_features/loop_depth/loop_depth.trace -- ../test_cases/test_file1
-
