@@ -1,0 +1,104 @@
+Program Name: 		xalanc
+# Predicted Correctly: 	5763556
+Total #: 		6554572
+Accuracy: 		0.879318436047
+Dimensionality: 	2249
+Unique PC Ratio: 	0.0343119276133 %
+--------------------------------------> 4.08360385895 
+
+Program Name: 		soplex.med
+# Predicted Correctly: 	149751
+Total #: 		174644
+Accuracy: 		0.857464327432
+Dimensionality: 	261
+Unique PC Ratio: 	0.149446874785 %
+--------------------------------------> 0.110909938812 
+
+Program Name: 		astar
+# Predicted Correctly: 	923877
+Total #: 		1151063
+Accuracy: 		0.802629395611
+Dimensionality: 	54
+Unique PC Ratio: 	0.00469131576638 %
+--------------------------------------> 0.726489067078 
+
+Program Name: 		omnetpp
+# Predicted Correctly: 	3107005
+Total #: 		4861397
+Accuracy: 		0.639117726859
+Dimensionality: 	1498
+Unique PC Ratio: 	0.0308141877736 %
+--------------------------------------> 3.08534812927 
+
+Program Name: 		gcc
+# Predicted Correctly: 	1880765
+Total #: 		2128622
+Accuracy: 		0.883559880524
+Dimensionality: 	3280
+Unique PC Ratio: 	0.154090298794 %
+--------------------------------------> 1.3115799427 
+
+Program Name: 		cactusADM
+# Predicted Correctly: 	1089638
+Total #: 		1210894
+Accuracy: 		0.899862415703
+Dimensionality: 	522
+Unique PC Ratio: 	0.043108645348 %
+--------------------------------------> 0.764364957809 
+
+Program Name: 		bzip2
+# Predicted Correctly: 	3785398
+Total #: 		4751208
+Accuracy: 		0.796723275428
+Dimensionality: 	104
+Unique PC Ratio: 	0.00218891700805 %
+--------------------------------------> 2.99196004868 
+
+Program Name: 		milc
+# Predicted Correctly: 	3778558
+Total #: 		3927070
+Accuracy: 		0.962182492291
+Dimensionality: 	165
+Unique PC Ratio: 	0.00420160577734 %
+--------------------------------------> 2.45228886604 
+
+Program Name: 		sphinx3
+# Predicted Correctly: 	2562042
+Total #: 		3030819
+Accuracy: 		0.845329925674
+Dimensionality: 	1698
+Unique PC Ratio: 	0.0560244607151 %
+--------------------------------------> 1.90402603149 
+
+Program Name: 		soplex
+# Predicted Correctly: 	6503617
+Total #: 		8974644
+Accuracy: 		0.724665736045
+Dimensionality: 	2348
+Unique PC Ratio: 	0.0261625976473 %
+--------------------------------------> 5.63676691055 
+
+Program Name: 		test_prog1
+# Predicted Correctly: 	3
+Total #: 		10
+Accuracy: 		0.3
+Dimensionality: 	5
+Unique PC Ratio: 	50.0 %
+--------------------------------------> 5.00679016113e-05 
+
+Program Name: 		mcf
+# Predicted Correctly: 	17720339
+Total #: 		19988560
+Accuracy: 		0.886524041752
+Dimensionality: 	650
+Unique PC Ratio: 	0.00325186006396 %
+--------------------------------------> 12.6241500378 
+
+Program Name: 		tonto
+# Predicted Correctly: 	4635572
+Total #: 		5453228
+Accuracy: 		0.850060184537
+Dimensionality: 	1292
+Unique PC Ratio: 	0.0236923891684 %
+--------------------------------------> 3.4485180378 
+
