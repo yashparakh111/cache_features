@@ -31,7 +31,7 @@ for program in os.listdir(sys.argv[1]):
         num_pred_correct = num_pred_correct + int(read_instr[-1])
         PC = int(read_instr[2], 16)
         unique_PCs.add(PC)
-        PC_list.append(PC % 1000000)
+        PC_list.append(PC % 10000000)
 
     PC_freq = np.bincount(PC_list)
 
