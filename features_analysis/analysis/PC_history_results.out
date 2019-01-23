@@ -1,0 +1,48 @@
+Program Name:  xalanc
+Unique PC History Ratio (ordered):  2201622 / 6554572 = 0.33589103911
+Unique PC History Ratio (unordered):  632490 / 6554572 = 0.0964960030952
+--------------------------------------
+Program Name:  soplex.med
+Unique PC History Ratio (ordered):  174438 / 174644 = 0.998820457617
+Unique PC History Ratio (unordered):  172889 / 174644 = 0.989950986006
+--------------------------------------
+Program Name:  astar
+Unique PC History Ratio (ordered):  1149670 / 1151063 = 0.998789814285
+Unique PC History Ratio (unordered):  1135094 / 1151063 = 0.986126736764
+--------------------------------------
+Program Name:  omnetpp
+Unique PC History Ratio (ordered):  4298768 / 4861397 = 0.884265983626
+Unique PC History Ratio (unordered):  3525909 / 4861397 = 0.725287196252
+--------------------------------------
+Program Name:  gcc
+Unique PC History Ratio (ordered):  649864 / 2128622 = 0.305297981511
+Unique PC History Ratio (unordered):  584733 / 2128622 = 0.274700252088
+--------------------------------------
+Program Name:  cactusADM
+Unique PC History Ratio (ordered):  1185533 / 1210894 = 0.979055970217
+Unique PC History Ratio (unordered):  1099160 / 1210894 = 0.907726027216
+--------------------------------------
+Program Name:  bzip2
+Unique PC History Ratio (ordered):  4715113 / 4751208 = 0.992402984673
+Unique PC History Ratio (unordered):  4502985 / 4751208 = 0.947755812837
+--------------------------------------
+Program Name:  milc
+Unique PC History Ratio (ordered):  3927070 / 3927070 = 1.0
+Unique PC History Ratio (unordered):  3927070 / 3927070 = 1.0
+--------------------------------------
+Program Name:  sphinx3
+Unique PC History Ratio (ordered):  1077209 / 3030819 = 0.3554184529
+Unique PC History Ratio (unordered):  524969 / 3030819 = 0.173210277486
+--------------------------------------
+Program Name:  soplex
+Unique PC History Ratio (ordered):  6214018 / 8974644 = 0.692397158038
+Unique PC History Ratio (unordered):  3864042 / 8974644 = 0.4305510057
+--------------------------------------
+Program Name:  mcf
+Unique PC History Ratio (ordered):  12099175 / 19988560 = 0.605304984451
+Unique PC History Ratio (unordered):  6886469 / 19988560 = 0.344520515735
+--------------------------------------
+Program Name:  tonto
+Unique PC History Ratio (ordered):  3109804 / 5453228 = 0.570268472178
+Unique PC History Ratio (unordered):  1274741 / 5453228 = 0.233758977252
+--------------------------------------
