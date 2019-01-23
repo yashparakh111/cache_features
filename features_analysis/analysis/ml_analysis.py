@@ -8,10 +8,8 @@ import numpy as np
 from collections import Counter
 import matplotlib.pyplot as plt
 
-i = 0
 
 for program in os.listdir(sys.argv[1]):
-    i = i + 1
     start = time.time()
     f = open(os.path.join(sys.argv[1], program), "r")
 
@@ -20,9 +18,6 @@ for program in os.listdir(sys.argv[1]):
     num_pred_correct = 0
     unique_PCs = set()
     PC_list = []
-
-    #for i in range(5):
-        #f.readline()
 
     for line in f:
         read_instr = line.split(" ")
