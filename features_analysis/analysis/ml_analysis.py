@@ -21,12 +21,15 @@ for program in os.listdir(sys.argv[1]):
 
     for line in f:
         read_instr = line.split(" ")
-        
+
         total_pred = total_pred + 1
         num_pred_correct = num_pred_correct + int(read_instr[-1])
-        PC = int(read_instr[2], 16)
-        unique_PCs.add(PC)
-        PC_list.append(PC % 10000000)
+        PC = int(read_instr[1], 16)
+        if PC not in unique_PCs:
+            unique_PCs.add(PC:0)
+        else:
+
+        PC_list.append(PC)
 
     PC_freq = np.bincount(PC_list)
 
