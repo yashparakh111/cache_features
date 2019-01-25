@@ -27,8 +27,9 @@ for program in os.listdir(sys.argv[1]):
 
         f = open(os.path.join(sys.argv[1], program), "r")
 
+        # tuples are hashable, while lists are not
         for line in f:
-            history.append((line.split(" "))[1])
+            history.append((line.split(" "))[2])
             history_list_ordered.add(tuple(history))
 
             history_temp = list(history)
@@ -42,9 +43,9 @@ for program in os.listdir(sys.argv[1]):
         f.close()
 
     print "Program Name:", program
-    print "PC-History Count:", count
+    print "PC-History Count:", "{:,}".format(count)
     print data
-    print "Execute Time:", time.time() - start
     data.clear()
+    print "Execute Time:", time.time() - start
     
     print
