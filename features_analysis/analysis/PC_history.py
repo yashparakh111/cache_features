@@ -29,10 +29,11 @@ for program in os.listdir(sys.argv[1]):
 
         # tuples are hashable, while lists are not
         for line in f:
-            history.append((line.split(" "))[1])
+            history.append((line.split(" "))[2])
             history_list_ordered.add(tuple(history))
 
-            history_temp = list(history).sort()
+            history_temp = list(history)
+            history_temp.sort()
             history_list_unordered.add(tuple(history_temp))
 
             count = count + 1
