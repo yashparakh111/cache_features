@@ -184,7 +184,8 @@ int main(int argc, char **argv) {
 	}
 
 	//cout << unsigned(loop_depth_map["main"]
-	string filename = "loop_depth.trace";
+	string filename(binaryPath);
+	filename += "_loop_depth.trace";
 	mapToFile(filename, func_map);
 
 	return 0;
