@@ -1,144 +1,132 @@
-+-----------------------+------------------+
-|        Property       |      Value       |
-+-----------------------+------------------+
-|      Program Name     |      xalanc      |
-| # Predicted Correctly |     5763556      |
-|       Total PCs       |     6554572      |
-|    Hawkeye Accuracy   | 5763556 (87.93%) |
-|     Dimensionality    |      367189      |
-|    Unique PC Ratio    |      5.602%      |
-+-----------------------+------------------+
-Execute Time:  5.09837007523 ms
++------------------+------------------+
+|     Property     |      Value       |
++------------------+------------------+
+|   Program Name   |      xalanc      |
+|    Total PCs     |     6554572      |
+| Hawkeye Accuracy | 5763556 (87.93%) |
+|  Dimensionality  |       2249       |
+| Unique PC Ratio  |      0.034%      |
++------------------+------------------+
+Execute Time:  4.62663006783 ms
 
-+-----------------------+-----------------+
-|        Property       |      Value      |
-+-----------------------+-----------------+
-|      Program Name     |    soplex.med   |
-| # Predicted Correctly |      149751     |
-|       Total PCs       |      174644     |
-|    Hawkeye Accuracy   | 149751 (85.75%) |
-|     Dimensionality    |      92727      |
-|    Unique PC Ratio    |     53.095%     |
-+-----------------------+-----------------+
-Execute Time:  0.146328926086 ms
++------------------+-----------------+
+|     Property     |      Value      |
++------------------+-----------------+
+|   Program Name   |    soplex.med   |
+|    Total PCs     |      174644     |
+| Hawkeye Accuracy | 149751 (85.75%) |
+|  Dimensionality  |       261       |
+| Unique PC Ratio  |      0.149%     |
++------------------+-----------------+
+Execute Time:  0.126405000687 ms
 
-+-----------------------+-----------------+
-|        Property       |      Value      |
-+-----------------------+-----------------+
-|      Program Name     |      astar      |
-| # Predicted Correctly |      923877     |
-|       Total PCs       |     1151063     |
-|    Hawkeye Accuracy   | 923877 (80.26%) |
-|     Dimensionality    |      317773     |
-|    Unique PC Ratio    |     27.607%     |
-+-----------------------+-----------------+
-Execute Time:  0.897451877594 ms
++------------------+-----------------+
+|     Property     |      Value      |
++------------------+-----------------+
+|   Program Name   |      astar      |
+|    Total PCs     |     1151063     |
+| Hawkeye Accuracy | 923877 (80.26%) |
+|  Dimensionality  |        54       |
+| Unique PC Ratio  |      0.005%     |
++------------------+-----------------+
+Execute Time:  0.832300901413 ms
 
-+-----------------------+------------------+
-|        Property       |      Value       |
-+-----------------------+------------------+
-|      Program Name     |     omnetpp      |
-| # Predicted Correctly |     3107005      |
-|       Total PCs       |     4861397      |
-|    Hawkeye Accuracy   | 3107005 (63.91%) |
-|     Dimensionality    |      449200      |
-|    Unique PC Ratio    |      9.24%       |
-+-----------------------+------------------+
-Execute Time:  4.04767394066 ms
++------------------+------------------+
+|     Property     |      Value       |
++------------------+------------------+
+|   Program Name   |     omnetpp      |
+|    Total PCs     |     4861397      |
+| Hawkeye Accuracy | 3107005 (63.91%) |
+|  Dimensionality  |       1498       |
+| Unique PC Ratio  |      0.031%      |
++------------------+------------------+
+Execute Time:  3.46363711357 ms
 
-+-----------------------+------------------+
-|        Property       |      Value       |
-+-----------------------+------------------+
-|      Program Name     |       gcc        |
-| # Predicted Correctly |     1880765      |
-|       Total PCs       |     2128622      |
-|    Hawkeye Accuracy   | 1880765 (88.36%) |
-|     Dimensionality    |      213652      |
-|    Unique PC Ratio    |     10.037%      |
-+-----------------------+------------------+
-Execute Time:  1.68713593483 ms
++------------------+------------------+
+|     Property     |      Value       |
++------------------+------------------+
+|   Program Name   |       gcc        |
+|    Total PCs     |     2128622      |
+| Hawkeye Accuracy | 1880765 (88.36%) |
+|  Dimensionality  |       3280       |
+| Unique PC Ratio  |      0.154%      |
++------------------+------------------+
+Execute Time:  1.48104500771 ms
 
-+-----------------------+------------------+
-|        Property       |      Value       |
-+-----------------------+------------------+
-|      Program Name     |    cactusADM     |
-| # Predicted Correctly |     1089638      |
-|       Total PCs       |     1210894      |
-|    Hawkeye Accuracy   | 1089638 (89.99%) |
-|     Dimensionality    |      606141      |
-|    Unique PC Ratio    |     50.057%      |
-+-----------------------+------------------+
-Execute Time:  1.0107960701 ms
++------------------+------------------+
+|     Property     |      Value       |
++------------------+------------------+
+|   Program Name   |    cactusADM     |
+|    Total PCs     |     1210894      |
+| Hawkeye Accuracy | 1089638 (89.99%) |
+|  Dimensionality  |       522        |
+| Unique PC Ratio  |      0.043%      |
++------------------+------------------+
+Execute Time:  0.873931884766 ms
 
-+-----------------------+------------------+
-|        Property       |      Value       |
-+-----------------------+------------------+
-|      Program Name     |      bzip2       |
-| # Predicted Correctly |     3785398      |
-|       Total PCs       |     4751208      |
-|    Hawkeye Accuracy   | 3785398 (79.67%) |
-|     Dimensionality    |      114549      |
-|    Unique PC Ratio    |      2.411%      |
-+-----------------------+------------------+
-Execute Time:  3.82553291321 ms
++------------------+------------------+
+|     Property     |      Value       |
++------------------+------------------+
+|   Program Name   |      bzip2       |
+|    Total PCs     |     4751208      |
+| Hawkeye Accuracy | 3785398 (79.67%) |
+|  Dimensionality  |       104        |
+| Unique PC Ratio  |      0.002%      |
++------------------+------------------+
+Execute Time:  3.41298699379 ms
 
-+-----------------------+------------------+
-|        Property       |      Value       |
-+-----------------------+------------------+
-|      Program Name     |       milc       |
-| # Predicted Correctly |     3778558      |
-|       Total PCs       |     3927070      |
-|    Hawkeye Accuracy   | 3778558 (96.22%) |
-|     Dimensionality    |     2725101      |
-|    Unique PC Ratio    |     69.393%      |
-+-----------------------+------------------+
-Execute Time:  3.32358217239 ms
++------------------+------------------+
+|     Property     |      Value       |
++------------------+------------------+
+|   Program Name   |       milc       |
+|    Total PCs     |     3927070      |
+| Hawkeye Accuracy | 3778558 (96.22%) |
+|  Dimensionality  |       165        |
+| Unique PC Ratio  |      0.004%      |
++------------------+------------------+
+Execute Time:  2.86781191826 ms
 
-+-----------------------+------------------+
-|        Property       |      Value       |
-+-----------------------+------------------+
-|      Program Name     |     sphinx3      |
-| # Predicted Correctly |     2562042      |
-|       Total PCs       |     3030819      |
-|    Hawkeye Accuracy   | 2562042 (84.53%) |
-|     Dimensionality    |      117721      |
-|    Unique PC Ratio    |      3.884%      |
-+-----------------------+------------------+
-Execute Time:  2.77429795265 ms
++------------------+------------------+
+|     Property     |      Value       |
++------------------+------------------+
+|   Program Name   |     sphinx3      |
+|    Total PCs     |     3030819      |
+| Hawkeye Accuracy | 2562042 (84.53%) |
+|  Dimensionality  |       1698       |
+| Unique PC Ratio  |      0.056%      |
++------------------+------------------+
+Execute Time:  2.20499300957 ms
 
-+-----------------------+------------------+
-|        Property       |      Value       |
-+-----------------------+------------------+
-|      Program Name     |      soplex      |
-| # Predicted Correctly |     6503617      |
-|       Total PCs       |     8974644      |
-|    Hawkeye Accuracy   | 6503617 (72.47%) |
-|     Dimensionality    |      395791      |
-|    Unique PC Ratio    |      4.41%       |
-+-----------------------+------------------+
-Execute Time:  8.14522600174 ms
++------------------+------------------+
+|     Property     |      Value       |
++------------------+------------------+
+|   Program Name   |      soplex      |
+|    Total PCs     |     8974644      |
+| Hawkeye Accuracy | 6503617 (72.47%) |
+|  Dimensionality  |       2348       |
+| Unique PC Ratio  |      0.026%      |
++------------------+------------------+
+Execute Time:  6.50517892838 ms
 
-+-----------------------+-------------------+
-|        Property       |       Value       |
-+-----------------------+-------------------+
-|      Program Name     |        mcf        |
-| # Predicted Correctly |      17720339     |
-|       Total PCs       |      19988560     |
-|    Hawkeye Accuracy   | 17720339 (88.65%) |
-|     Dimensionality    |       872190      |
-|    Unique PC Ratio    |       4.363%      |
-+-----------------------+-------------------+
-Execute Time:  16.6163539886 ms
++------------------+-------------------+
+|     Property     |       Value       |
++------------------+-------------------+
+|   Program Name   |        mcf        |
+|    Total PCs     |      19988560     |
+| Hawkeye Accuracy | 17720339 (88.65%) |
+|  Dimensionality  |        650        |
+| Unique PC Ratio  |       0.003%      |
++------------------+-------------------+
+Execute Time:  14.7284948826 ms
 
-+-----------------------+------------------+
-|        Property       |      Value       |
-+-----------------------+------------------+
-|      Program Name     |      tonto       |
-| # Predicted Correctly |     4635572      |
-|       Total PCs       |     5453228      |
-|    Hawkeye Accuracy   | 4635572 (85.01%) |
-|     Dimensionality    |      183871      |
-|    Unique PC Ratio    |      3.372%      |
-+-----------------------+------------------+
-Execute Time:  4.42704510689 ms
++------------------+------------------+
+|     Property     |      Value       |
++------------------+------------------+
+|   Program Name   |      tonto       |
+|    Total PCs     |     5453228      |
+| Hawkeye Accuracy | 4635572 (85.01%) |
+|  Dimensionality  |       1292       |
+| Unique PC Ratio  |      0.024%      |
++------------------+------------------+
+Execute Time:  3.91487908363 ms
 
