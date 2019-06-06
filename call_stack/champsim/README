@@ -1,0 +1,5 @@
+Steps to generate call_stack and loop_depth trace for benchmark programs:
+	1) Generate loop_depth trace for all benchmark programs using the loop_depth.cpp tool. (Already done. Loop_depth traces found at loop_depth/benchmark_loop_depth/benchmarks/)
+	2) Feed loop depth info to champsim_tracer_final.cpp (PIN tool) which will merge the loop_depth and call_stack info for each dynamically-executed read instruction. The results are output to champsim_features.trace (by default).
+	   The PIN tool also outputs champsim.trace file which contains info regarding all executed instructions (originally written by Akanksha).
+	3) Finally, use read_traces/read_features_trace.cpp or read_traces/read_trace.cpp to read the traces files from the previous step.
