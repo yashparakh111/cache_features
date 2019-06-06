@@ -1,0 +1,11 @@
+- Traces contains traces file for various programs.
+	- Format:	<\ignore> <PC> <data address> <ignore> <hit/miss with OPT> <accurate/inaccurate with Hawkeye>
+	- More concretely, each line in the trace is a cache access, and the fields represent the following:
+		- Bool to indicate whether feedback has been received. You can ignore this field.
+		- The memory address of the cache access
+		- The load instruction address (PC) of the cache access
+		- The probability of a cache hit as measured by my simple PC-based predictor (a value of 2 indicates that the predictor has not been trained).
+		- The OPT decision to cache or not cache
+		- This bit indicates whether Hawkeye's simple predictor got it right or wrong.
+
+- Analysis_* contains python code to analyze these programs.
