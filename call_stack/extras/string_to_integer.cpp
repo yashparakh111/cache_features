@@ -10,6 +10,6 @@ int main() {
 	int i_dec = std::stoi(str, &sz);
 	unsigned char i_dec2 = std::stoi(str.substr(sz + 1));
 	cout << i_dec << endl;
-	cout << (unsigned char)stoi(str.substr(sz+1)) << endl;
+	cout << (int)stoi(str.substr(sz+1)) << endl;
 	return 0;
 }

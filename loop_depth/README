@@ -1,0 +1,5 @@
+loop_depth generates loop-related info for all load instructions in each function in the input file:
+	- loop depth
+	- loop name
+	- instruction offset from function
+	- the instrction itself
