@@ -3,3 +3,9 @@ loop_depth generates loop-related info for all load instructions in each functio
 	- loop name
 	- instruction offset from function
 	- the instrction itself
+
+benchmark_loop_depth contains loop_depth-generated files for various benchmark programs.
+	- Format:
+		<function_name>
+		<instr offset from function> | <loop depth> (for all read instruction under function_name)
+		-

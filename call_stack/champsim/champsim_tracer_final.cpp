@@ -316,6 +316,8 @@ void MemoryRead(INS instr, VOID* addr, UINT32 index, UINT32 read_size) {
 		}
 	}
 
+	/* Adding code to capture loop depth and call stack features */
+
 	// capture loop depth for routines with valid symbols
 	PIN_LockClient();
 	if(!call_stack_address.empty()) {
@@ -443,6 +445,8 @@ VOID Instruction(INS ins, VOID *v) {
 	// finalize each instruction with this function
 	INS_InsertCall(ins, IPOINT_BEFORE, (AFUNPTR)EndInstruction, IARG_END);
 }
+
+/* Added code to main the call_stack_address vector */
 
 // push routine on call stack
 VOID PushRoutine(ADDRINT rtn) {
