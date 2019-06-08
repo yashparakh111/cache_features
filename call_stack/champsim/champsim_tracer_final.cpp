@@ -80,7 +80,7 @@ KNOB<string> KnobLoopDepthTrace(KNOB_MODE_WRITEONCE,  "pintool", "l", "loop_dept
 KNOB<UINT64> KnobSkipInstructions(KNOB_MODE_WRITEONCE, "pintool", "s", "0", 
 		"How many instructions to skip before tracing begins");
 
-KNOB<UINT64> KnobTraceInstructions(KNOB_MODE_WRITEONCE, "pintool", "t", "1000000", 
+KNOB<UINT64> KnobTraceInstructions(KNOB_MODE_WRITEONCE, "pintool", "t", "100000000", 
 		"How many instructions to trace");
 
 /* ===================================================================== */
@@ -330,10 +330,10 @@ void MemoryRead(INS instr, VOID* addr, UINT32 index, UINT32 read_size) {
 			// record loop depth
 			curr_features.loop_depth = (func_map[function_name]).loop_depth_map[offset];
 
-			cout << hex << unsigned(func_map[function_name].loop_depth_map[offset])
+			/*cout << hex << unsigned(func_map[function_name].loop_depth_map[offset])
 				<< setw(15) << function_name << ": "
 				<< curr_features.ip << " - " << (unsigned long long int)rtn_addr << " = " << offset
-				<< endl;
+				<< endl;*/
 		}
 	}
 	PIN_UnlockClient();
