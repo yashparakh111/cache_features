@@ -5,9 +5,10 @@
 #define NUM_INSTR_DESTINATIONS 2
 #define NUM_INSTR_SOURCES 4
 
-const uint8_t call_stack_max_size = 30;
+const uint8_t call_stack_max_size = 32;
 
 typedef struct trace_features {
+	unsigned long long int id;
     unsigned long long int ip;      // instruction pointer (PC) value 
     unsigned long long int call_stack[call_stack_max_size];    // call stack
     uint8_t call_stack_size;
@@ -24,8 +25,12 @@ int main(int argc, char** argv) {
         exit(1);
     }
 
+	int counter = 0;
     // read file contents till end of file
-    while(fread(&input, sizeof(trace_features_t), 1, infile)) {
+    while(fread(&input, sizeof(trace_features_t), 1, infile) && counter < 15) {
+		// print instruction id
+		printf("0x%-15llX", input.id);
+
        	// print intruction pointer 
 		printf("0x%-15llX", input.ip);
 
@@ -38,6 +43,7 @@ int main(int argc, char** argv) {
         }
 
         printf("\n");
+		counter++;
     }
     fclose(infile);
     
